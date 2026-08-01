@@ -17,24 +17,49 @@
   color: var(--text-body-color);
 }
 
-/* Cleanup infographic */
+/* Cleanup infographic — shares the "software artifact" chrome language of the
+   other mocks on the page */
 .lp-why__viz {
   margin: 0;
   background: #fff;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-sm);
-  padding: var(--card-pad);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+}
+.lp-why__viz-chrome {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--blue-900);
+  padding: 8px 12px;
+  margin-bottom: var(--space-2);
+}
+.lp-why__viz-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.35);
 }
 .lp-why__viz-title {
+  margin-left: 6px;
   font: var(--type-eyebrow);
+  font-size: 11px;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: var(--space-2);
+  color: rgb(255 255 255 / 0.85);
+}
+.lp-why__viz-chrome + .lp-why__viz-row,
+.lp-why__viz-row {
+  margin: 0 var(--space-5);
+}
+.lp-why__viz-row:last-child {
+  margin-bottom: var(--space-5);
+}
+.lp-why__viz-row + .lp-why__viz-row {
+  margin-top: var(--space-3);
 }
 .lp-why__viz-row {
   display: flex;

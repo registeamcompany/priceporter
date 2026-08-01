@@ -30,16 +30,20 @@
 .lp-stats__myth {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
-  gap: var(--space-3);
+  gap: var(--space-4);
   margin: var(--space-8) auto 0;
-  max-width: 72ch;
+  max-width: var(--lp-rail);
+  padding: var(--space-5) var(--space-6);
+  background: #fff;
+  border-left: 3px solid var(--brand-accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: var(--shadow-sm);
   font: var(--type-body);
   color: var(--text-strong);
 }
 .lp-stats__myth .ic {
   color: var(--brand-accent);
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 @media (max-width: 1023px) {

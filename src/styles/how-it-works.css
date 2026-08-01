@@ -9,7 +9,7 @@
   gap: var(--space-6);
   position: relative;
 }
-/* connecting line across the markers */
+/* connecting line across the markers — warms toward the accent as it reaches step 4 */
 .lp-how__timeline::before {
   content: "";
   position: absolute;
@@ -17,7 +17,7 @@
   left: 40px;
   right: 40px;
   height: 2px;
-  background: var(--neutral-300);
+  background: linear-gradient(to right, var(--blue-300), var(--blue-500) 55%, var(--brand-accent));
 }
 .lp-how__step {
   position: relative;
@@ -107,6 +107,7 @@
     right: auto;
     width: 2px;
     height: auto;
+    background: linear-gradient(to bottom, var(--blue-300), var(--blue-500) 55%, var(--brand-accent));
   }
   .lp-how__step {
     margin-top: 0;

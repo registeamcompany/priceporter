@@ -7,17 +7,19 @@
   max-width: 1080px;
   margin-inline: auto;
 }
+.lp-final {
+  /* subtle dot grid gives the darkest band some depth */
+  background-image: radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
 .lp-final__row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-4);
   align-items: stretch;
 }
-.lp-final__row .pr-btn {
-  height: var(--control-h-lg);
-}
 .lp-final__submit {
-  white-space: nowrap;
+  margin-top: var(--space-2);
 }
 .lp-final__contacts {
   display: flex;

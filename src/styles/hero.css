@@ -71,6 +71,14 @@
   max-width: 20ch;
   text-wrap: balance;
 }
+/* the site's signature 5px black rule under the hero headline */
+.lp-hero__rule {
+  display: block;
+  width: 96px;
+  height: 5px;
+  background: var(--neutral-900);
+  margin: 0 0 var(--space-6);
+}
 .lp-hero__sub {
   font: var(--type-lead);
   color: var(--text-body-color);
@@ -136,7 +144,12 @@
     text-align: center;
     margin-bottom: var(--space-4);
   }
-  .lp-hero__badge {
+  .lp-hero__rule {
+    display: none;
+  }
+  /* the mobile CTA already carried the offer + microcopy — don't repeat it
+     inside the revealed form */
+  .lp-hero__formwrap .lp-form__head {
     display: none;
   }
   /* Form hidden until the CTA opens it */

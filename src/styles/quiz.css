@@ -1,5 +1,9 @@
-/* BLOCK 5 — QUIZ. Contrast navy band; white interactive card ~70% wide; one question
-   at a time; big tap-friendly answer cards; mandatory progress bar. */
+/* BLOCK 5 — QUIZ. Contrast navy band; white interactive card on the reading rail;
+   one question at a time; big tap-friendly answer cards; mandatory progress bar. */
+.lp-quiz {
+  background-image: radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
 .lp-quiz__card {
   position: relative;
   max-width: var(--lp-rail);

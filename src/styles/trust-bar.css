@@ -1,6 +1,8 @@
 /* BLOCK 2 — TRUST BAR. Navy foundation strip under the hero; 4 columns, thin separators. */
 .lp-trust {
   padding-block: var(--space-7);
+  /* the brand's 3px orange rule anchors the band under the hero */
+  border-top: 3px solid var(--brand-accent);
 }
 .lp-trust__grid {
   display: grid;

@@ -159,63 +159,79 @@
   color: var(--brand-accent);
 }
 
-/* Comparison strip */
+/* Comparison table — one solid card, three columns with subgrid-aligned rows so the
+   keylines run straight across; the Price Reporter column reads as the winner. */
 .lp-compare {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+  grid-template-columns: 1fr 1fr 1.15fr;
+  grid-template-rows: repeat(4, auto);
   margin-top: var(--space-9);
-  align-items: stretch;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
 }
 .lp-compare__col {
-  background: var(--surface-subtle);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-card);
-  padding: var(--card-pad-lg);
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  border-left: 1px solid var(--border-subtle);
 }
-.lp-compare__col--featured {
-  position: relative;
-  background: #fff;
-  border: 2px solid var(--brand-accent);
-  box-shadow: var(--shadow-md);
+.lp-compare__col:first-child {
+  border-left: 0;
 }
-.lp-compare__title {
-  font: var(--type-h3);
-  color: var(--text-strong);
-  margin: 0 0 var(--space-5);
-}
-.lp-compare__col--featured .lp-compare__title {
-  color: var(--text-heading);
-}
-.lp-compare__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.lp-compare__head {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font: var(--type-h4);
+  color: var(--text-muted);
+  background: var(--neutral-100);
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--border-subtle);
 }
-.lp-compare__list li {
+.lp-compare__row {
   display: grid;
   grid-template-columns: 20px 1fr;
   gap: var(--space-3);
-  margin: 0;
+  align-content: center;
+  padding: var(--space-5) var(--space-6);
+  border-top: 1px solid var(--border-subtle);
   font: var(--type-body);
   color: var(--text-body-color);
 }
-.lp-compare__list .ic {
-  color: var(--neutral-400);
+.lp-compare__row:nth-child(2) {
+  border-top: 0;
+}
+.lp-compare__row .ic {
   margin-top: 3px;
+  color: var(--neutral-400);
 }
-/* DIY column: muted red crosses; consultant column: neutral dashes */
-.lp-compare__col:first-child .lp-compare__list .ic {
+/* DIY column: muted red crosses */
+.lp-compare__col:first-child .lp-compare__row .ic {
   color: var(--red-500);
-  opacity: 0.65;
+  opacity: 0.6;
 }
-.lp-compare__col--featured .lp-compare__list li {
+/* Winner column: navy header with orange top rule, tinted body, orange checks */
+.lp-compare__col--featured {
+  background: var(--blue-50);
+  border-left-color: transparent;
+  box-shadow: -8px 0 20px rgb(12 65 102 / 0.08);
+}
+.lp-compare__col--featured .lp-compare__head {
+  background: var(--blue-900);
+  color: #fff;
+  border-bottom: 0;
+  box-shadow: inset 0 3px 0 var(--brand-accent);
+}
+.lp-compare__col--featured .lp-compare__row {
   color: var(--text-strong);
+  border-top-color: var(--blue-100);
+  font-weight: var(--weight-medium);
 }
-.lp-compare__col--featured .lp-compare__list .ic {
+.lp-compare__col--featured .lp-compare__row .ic {
   color: var(--brand-accent);
   opacity: 1;
 }
@@ -245,10 +261,23 @@
   .lp-problem__stamp {
     top: -10px;
   }
-  /* Vertical stack: Price Reporter card closes the sequence, stays featured */
+  /* Vertical stack: Price Reporter block closes the sequence, stays featured */
   .lp-compare {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
+    display: flex;
+    flex-direction: column;
     margin-top: var(--space-7);
+  }
+  .lp-compare__col {
+    display: block;
+    border-left: 0;
+  }
+  .lp-compare__col + .lp-compare__col .lp-compare__head {
+    border-top: 1px solid var(--border-subtle);
+  }
+  .lp-compare__row {
+    padding: var(--space-4) var(--space-5);
+  }
+  .lp-compare__head {
+    padding: var(--space-4) var(--space-5);
   }
 }
