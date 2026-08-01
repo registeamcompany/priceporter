@@ -1,0 +1,38 @@
+/* Element defaults + layout utilities matching the live site's flat, banded structure. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:var(--type-body);color:var(--text-body);background:var(--surface-page);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,h5,h6{margin:0 0 var(--space-4);color:var(--text-strong);font-family:var(--font-display);font-weight:var(--weight-bold);letter-spacing:var(--tracking-heading);text-wrap:balance}
+h1{font:var(--type-h1);letter-spacing:var(--tracking-display)}
+h2{font:var(--type-h2)}h3{font:var(--type-h3)}h4{font:var(--type-h4)}
+p{margin:0 0 var(--space-4);text-wrap:pretty}
+p:last-child{margin-bottom:0}
+a{color:var(--text-link);text-decoration:none;transition:color var(--duration-fast) var(--ease-standard)}
+a:hover{color:var(--text-link-hover)}
+strong,b{font-weight:var(--weight-bold);color:var(--text-strong)}
+small{font:var(--type-caption)}
+img,svg{max-width:100%}
+hr{border:0;border-top:1px solid var(--border-subtle);margin:var(--space-8) 0}
+ul,ol{margin:0 0 var(--space-4);padding-left:var(--space-6)}
+li{margin-bottom:var(--space-2)}
+:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+::selection{background:var(--blue-200);color:var(--blue-900)}
+code,kbd{font-family:var(--font-mono);font-size:.92em}
+/* layout */
+.pr-container{width:100%;max-width:var(--container-max);margin-inline:auto;padding-inline:var(--gutter)}
+.pr-container-narrow{width:100%;max-width:var(--container-narrow);margin-inline:auto;padding-inline:var(--gutter)}
+.pr-section{padding-block:var(--section-y)}
+.pr-band{background:var(--surface-band)}
+.pr-band-white{background:var(--surface-page)}
+.pr-inverse{background:var(--surface-inverse);color:var(--text-on-dark)}
+.pr-inverse h1,.pr-inverse h2,.pr-inverse h3,.pr-inverse h4{color:var(--text-on-dark)}
+.pr-inverse a{color:#fff}
+.pr-inverse a:hover{color:var(--orange-500)}
+/* the site's two signature rules */
+.pr-accent-rule{width:100%;height:3px;background:var(--brand-accent);border:0;margin:0}
+.pr-rule-black{width:100%;max-width:1160px;height:5px;background:var(--neutral-900);border:0;margin:var(--space-5) 0 0}
+/* orange chevron bullet list (values, FAQ, footer links) */
+.pr-chevron-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-5)}
+.pr-chevron{display:grid;grid-template-columns:22px 1fr;gap:var(--space-3);margin:0}
+.pr-chevron__glyph{color:var(--brand-accent);margin-top:2px}
+.pr-caps-label{font:var(--type-eyebrow);letter-spacing:var(--tracking-label);text-transform:uppercase}

@@ -1,0 +1,148 @@
+/* BLOCK 3 — THE PROBLEM. Centered head, ~65% body column, bureaucratic-paper collage,
+   3-column comparison strip with the Price Reporter column featured. */
+.lp-problem__body {
+  max-width: 65%;
+  margin-inline: auto;
+  font: var(--type-body);
+  color: var(--text-body-color);
+}
+.lp-problem__body p {
+  margin-bottom: var(--space-5);
+}
+
+/* Paper-stack collage — recognizable process artifacts, desaturated, no stock */
+.lp-problem__art {
+  position: relative;
+  max-width: 560px;
+  height: 240px;
+  margin: 0 auto var(--space-8);
+}
+.lp-problem__paper {
+  position: absolute;
+  background: #fff;
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 62%;
+}
+.lp-problem__paper--back {
+  left: 0;
+  top: 22px;
+  transform: rotate(-3deg);
+  opacity: 0.65;
+}
+.lp-problem__paper--mid {
+  left: 19%;
+  top: 6px;
+  transform: rotate(1.5deg);
+  opacity: 0.85;
+}
+.lp-problem__paper--front {
+  right: 0;
+  top: 34px;
+  transform: rotate(-1deg);
+}
+.lp-problem__paper-tag {
+  font: var(--type-eyebrow);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--blue-700);
+}
+.lp-problem__line {
+  height: 7px;
+  background: var(--neutral-200);
+  border-radius: 4px;
+}
+.lp-problem__stamp {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font: var(--type-eyebrow);
+  font-size: 11px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--red-500);
+  border: 1.5px solid var(--red-500);
+  border-radius: 3px;
+  padding: 3px 8px;
+  transform: rotate(4deg);
+  opacity: 0.85;
+}
+
+/* Comparison strip */
+.lp-compare {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-9);
+  align-items: stretch;
+}
+.lp-compare__col {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: var(--card-pad-lg);
+}
+.lp-compare__col--featured {
+  background: #fff;
+  border: 2px solid var(--brand-accent);
+  box-shadow: var(--shadow-md);
+}
+.lp-compare__title {
+  font: var(--type-h3);
+  color: var(--text-strong);
+  margin: 0 0 var(--space-5);
+}
+.lp-compare__col--featured .lp-compare__title {
+  color: var(--text-heading);
+}
+.lp-compare__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.lp-compare__list li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: var(--space-3);
+  margin: 0;
+  font: var(--type-body);
+  color: var(--text-body-color);
+}
+.lp-compare__list .ic {
+  color: var(--neutral-400);
+  margin-top: 3px;
+}
+.lp-compare__col--featured .lp-compare__list li {
+  color: var(--text-strong);
+}
+.lp-compare__col--featured .lp-compare__list .ic {
+  color: var(--brand-accent);
+}
+
+@media (max-width: 1023px) {
+  .lp-problem__body {
+    max-width: none;
+  }
+  .lp-problem__art {
+    height: 210px;
+    margin-bottom: var(--space-6);
+  }
+  .lp-problem__paper {
+    width: 74%;
+    padding: var(--space-4);
+  }
+  /* Vertical stack: Price Reporter card closes the sequence, stays featured */
+  .lp-compare {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-7);
+  }
+}

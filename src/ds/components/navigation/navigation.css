@@ -1,0 +1,28 @@
+/* navigation: Tabs, Accordion (site FAQ pattern), Breadcrumb */
+.pr-tabs{display:flex;gap:0;border-bottom:1px solid var(--border-subtle)}
+.pr-tab{position:relative;display:inline-flex;align-items:center;gap:var(--space-2);background:none;border:0;cursor:pointer;padding:var(--space-3) var(--space-5);font:var(--type-nav);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);transition:var(--transition-control)}
+.pr-tab::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--brand-accent);opacity:0;transition:opacity var(--duration-fast) var(--ease-standard)}
+.pr-tab:hover{color:var(--text-strong)}
+.pr-tab[aria-selected="true"]{color:var(--brand-primary)}
+.pr-tab[aria-selected="true"]::after{opacity:1}
+.pr-tabs--pill{border-bottom:0;background:var(--surface-band);padding:3px;gap:2px;display:inline-flex}
+.pr-tabs--pill .pr-tab{padding:8px var(--space-4)}
+.pr-tabs--pill .pr-tab::after{display:none}
+.pr-tabs--pill .pr-tab[aria-selected="true"]{background:#fff;color:var(--brand-primary)}
+.pr-tab__count{font-family:var(--font-body);font-size:var(--text-micro);background:var(--neutral-200);color:var(--text-muted);padding:1px 6px;letter-spacing:0}
+.pr-tab[aria-selected="true"] .pr-tab__count{background:var(--blue-50);color:var(--blue-700)}
+
+/* FAQ list: orange chevron, bold black question, hairline divider under each row */
+.pr-acc{border-top:0}
+.pr-acc__item{border-bottom:1px solid var(--border-default)}
+.pr-acc__btn{width:100%;display:grid;grid-template-columns:34px 1fr;align-items:center;gap:var(--space-4);background:none;border:0;cursor:pointer;text-align:left;padding:var(--space-5) 0;font:var(--type-h4);color:var(--text-strong);transition:color var(--duration-fast) var(--ease-standard)}
+.pr-acc__btn:hover{color:var(--brand-accent)}
+.pr-acc__chev{flex:none;color:var(--brand-accent);transition:transform var(--duration-base) var(--ease-out)}
+.pr-acc__item[data-open="true"] .pr-acc__chev{transform:rotate(90deg)}
+.pr-acc__panel{overflow:hidden;font:var(--type-body);color:var(--text-body);padding:0 var(--space-8) var(--space-5) 34px}
+
+.pr-crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2);font:var(--type-caption);color:var(--text-muted)}
+.pr-crumbs a{color:var(--text-muted)}
+.pr-crumbs a:hover{color:var(--brand-accent)}
+.pr-crumbs__sep{color:var(--brand-accent);display:flex}
+.pr-crumbs__current{color:var(--text-strong);font-weight:var(--weight-medium)}

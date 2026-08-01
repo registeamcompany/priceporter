@@ -1,0 +1,152 @@
+/* BLOCK 6 — SERVICES. Three equal cards: icon → title → orange rule → body → text link.
+   Card 3 carries a stylized OMS interface fragment ("they have software, not just advice"). */
+.lp-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  align-items: stretch;
+}
+.lp-services__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+  padding: var(--card-pad-lg);
+}
+.lp-services__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--blue-50);
+  color: var(--blue-700);
+}
+.lp-services__title {
+  font: var(--type-h3);
+  color: var(--text-strong);
+  margin: 0;
+}
+.lp-services__card .pr-service__rule {
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--brand-accent);
+  flex: none;
+}
+.lp-services__desc {
+  font: var(--type-body);
+  color: var(--text-body-color);
+  margin: 0;
+  flex: 1;
+}
+.lp-services__integrations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.lp-services__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: var(--type-button);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+.lp-services__link:hover {
+  color: var(--orange-600);
+}
+
+/* OMS interface mock, in light perspective */
+.lp-oms {
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--neutral-50);
+  box-shadow: var(--shadow-sm);
+  transform: perspective(900px) rotateX(3deg) rotateY(-3deg);
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-body-color);
+}
+.lp-oms__chrome {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--blue-900);
+  color: rgb(255 255 255 / 0.85);
+  padding: 7px 10px;
+}
+.lp-oms__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.35);
+}
+.lp-oms__chrome-title {
+  margin-left: 6px;
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lp-oms__row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr 1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 10px;
+  border-top: 1px solid var(--neutral-150);
+  background: #fff;
+  white-space: nowrap;
+}
+.lp-oms__row--head {
+  background: var(--neutral-100);
+  border-top: 0;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.lp-oms__chip {
+  justify-self: start;
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+.lp-oms__chip--ok {
+  background: var(--green-100);
+  color: var(--green-700);
+}
+.lp-oms__chip--proc {
+  background: var(--blue-50);
+  color: var(--blue-700);
+}
+
+@media (max-width: 1023px) {
+  .lp-services__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .lp-services__card {
+    padding: var(--card-pad);
+  }
+  .lp-oms {
+    transform: none;
+  }
+}

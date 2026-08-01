@@ -1,0 +1,64 @@
+/* Footer trust line — charcoal utility band, one quiet row. */
+.lp-footer {
+  background: var(--surface-utility);
+  color: rgb(255 255 255 / 0.75);
+  padding-block: var(--space-7);
+  /* keep clear of the mobile sticky bar */
+  padding-bottom: calc(var(--space-7) + 72px);
+}
+.lp-footer__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+.lp-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lp-footer__word {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: 15px;
+  letter-spacing: var(--tracking-logo);
+  color: #fff;
+}
+.lp-footer__word b {
+  font-weight: var(--weight-medium);
+  color: var(--blue-300);
+}
+.lp-footer__trust {
+  flex: 1;
+  font: var(--type-caption);
+  color: rgb(255 255 255 / 0.7);
+  margin: 0;
+  min-width: 260px;
+}
+.lp-footer__meta {
+  display: flex;
+  gap: var(--space-5);
+  font: var(--type-caption);
+}
+.lp-footer__meta a {
+  color: #fff;
+}
+.lp-footer__meta a:hover {
+  color: var(--brand-accent);
+}
+
+@media (min-width: 1024px) {
+  .lp-footer {
+    padding-bottom: var(--space-7);
+  }
+}
+@media (max-width: 1023px) {
+  .lp-footer__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-4);
+  }
+  .lp-footer__trust {
+    min-width: 0;
+  }
+}

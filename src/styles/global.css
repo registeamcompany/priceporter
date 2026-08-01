@@ -1,0 +1,126 @@
+/* Global entry: design-system tokens + components, then page-level shared styles. */
+@import "../ds/styles.css";
+
+/* The design system defines --text-body twice: as a color (colors.css) and as a font
+   size (typography.css, imported later — so 16px wins). A dedicated color token keeps
+   `color:` declarations valid; body gets the brand grey back explicitly. */
+:root {
+  --text-body-color: var(--neutral-700);
+}
+body {
+  color: var(--text-body-color);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+}
+
+/* Inline SVG icon sizing (Lucide markup, inherits currentColor) */
+.ic {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+.ic--sm { width: 16px; height: 16px; }
+.ic--xs { width: 13px; height: 13px; }
+.ic--lg { width: 24px; height: 24px; }
+
+/* Shared lead-form card (hero + final CTA reuse the field stack) */
+.lp-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.lp-form__title {
+  font: var(--type-h3);
+  color: var(--text-strong);
+  margin: 0 0 4px;
+}
+.lp-form__sub {
+  font: var(--type-body);
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+  margin: 0;
+}
+.lp-form__fine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font: var(--type-caption);
+  color: var(--text-muted);
+  margin: 0;
+  text-align: center;
+}
+.lp-form__success {
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+}
+.lp-form__success-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-pill);
+  background: var(--green-100);
+  color: var(--green-500);
+  display: inline-grid;
+  place-items: center;
+  margin-bottom: var(--space-4);
+}
+.lp-form__success h3 {
+  margin: 0 0 8px;
+}
+.lp-form__success p {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Full-width buttons carry long CTA labels — let them wrap instead of forcing
+   horizontal overflow on narrow screens. */
+@media (max-width: 1023px) {
+  .pr-btn--full,
+  .lp-sticky .pr-btn {
+    white-space: normal;
+    height: auto;
+    min-height: var(--control-h-lg);
+    padding-block: 12px;
+    line-height: 1.25;
+  }
+}
+
+/* Soft reveal on scroll — the only animation on the page.
+   Audience is 45–64: nothing slides far, nothing bounces. */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.stagger > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out);
+}
+.stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+.stagger.is-visible > :nth-child(2) { transition-delay: 90ms; }
+.stagger.is-visible > :nth-child(3) { transition-delay: 180ms; }
+.stagger.is-visible > :nth-child(4) { transition-delay: 270ms; }
+.stagger.is-visible > :nth-child(5) { transition-delay: 360ms; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .stagger > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

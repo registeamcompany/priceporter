@@ -1,0 +1,55 @@
+/* BLOCK 9 — WHAT A SCHEDULE IS WORTH. Three big stat cards; myth-buster as a human
+   remark below, never a fourth card. */
+.lp-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+.lp-stats__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+  padding: var(--card-pad-lg);
+}
+.lp-stats__value {
+  font: var(--type-stat);
+  letter-spacing: var(--tracking-display);
+  color: var(--brand-accent);
+  font-variant-numeric: tabular-nums;
+}
+.lp-stats__label {
+  font: var(--type-body);
+  color: var(--text-body-color);
+}
+.lp-stats__myth {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-3);
+  margin: var(--space-8) auto 0;
+  max-width: 72ch;
+  font: var(--type-body);
+  color: var(--text-strong);
+}
+.lp-stats__myth .ic {
+  color: var(--brand-accent);
+  margin-top: 4px;
+}
+
+@media (max-width: 1023px) {
+  .lp-stats__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .lp-stats__card {
+    padding: var(--card-pad);
+  }
+  .lp-stats__myth {
+    margin-top: var(--space-6);
+    justify-content: flex-start;
+  }
+}

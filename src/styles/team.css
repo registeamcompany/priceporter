@@ -1,0 +1,35 @@
+/* BLOCK 10 — TEAM. No real team photos supplied yet, so per spec the block runs
+   narrower: text only on a calm background with small brand graphic. No stock. */
+.lp-team__inner {
+  text-align: center;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-8);
+}
+.lp-team__mark {
+  display: inline-block;
+  margin-bottom: var(--space-5);
+}
+.lp-team__title {
+  font: var(--type-display-2);
+  letter-spacing: var(--tracking-display);
+  color: var(--text-heading);
+  margin: 0 0 var(--space-5);
+}
+.lp-team__body {
+  font: var(--type-lead);
+  color: var(--text-body-color);
+  margin: 0;
+  max-width: 58ch;
+  margin-inline: auto;
+}
+
+@media (max-width: 1023px) {
+  .lp-team__inner {
+    padding: var(--space-8) var(--space-5);
+  }
+  .lp-team__body {
+    font-size: var(--text-body);
+  }
+}

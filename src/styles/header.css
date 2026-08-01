@@ -1,0 +1,46 @@
+/* Slim sticky header — appears only after the first screen is scrolled (desktop). */
+.lp-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: rgb(255 255 255 / 0.96);
+  backdrop-filter: var(--overlay-blur);
+  -webkit-backdrop-filter: var(--overlay-blur);
+  border-bottom: 1px solid var(--border-subtle);
+  transform: translateY(-100%);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+.lp-header.is-visible {
+  transform: translateY(0);
+}
+.lp-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  min-height: 62px;
+}
+.lp-header__logo img {
+  display: block;
+}
+.lp-header__spacer {
+  flex: 1;
+}
+.lp-header__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 16px;
+  color: var(--blue-900);
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  /* Mobile carries the sticky bottom bar instead — no top chrome eating the screen. */
+  .lp-header {
+    display: none;
+  }
+}

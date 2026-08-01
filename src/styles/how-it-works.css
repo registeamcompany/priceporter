@@ -1,0 +1,125 @@
+/* BLOCK 4 — HOW IT WORKS. Horizontal 4-step timeline on desktop; step 4 is the point
+   of the block and reads differently. Vertical timeline with a left rail on mobile. */
+.lp-how__timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  position: relative;
+}
+/* connecting line across the markers */
+.lp-how__timeline::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background: var(--neutral-300);
+}
+.lp-how__step {
+  position: relative;
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: var(--card-pad);
+  padding-top: var(--space-8);
+  margin-top: var(--space-6);
+}
+.lp-how__marker {
+  position: absolute;
+  top: calc(-1 * var(--space-6) + 0px);
+  left: var(--card-pad);
+}
+.lp-how__num {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--blue-700);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 19px;
+  border: 3px solid var(--surface-band);
+}
+.lp-how__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--blue-50);
+  color: var(--blue-700);
+  margin-bottom: var(--space-4);
+}
+.lp-how__title {
+  font: var(--type-h4);
+  color: var(--text-strong);
+  margin: 0 0 var(--space-3);
+}
+.lp-how__text {
+  font: var(--type-body);
+  font-size: var(--text-body-sm);
+  color: var(--text-body-color);
+  margin: 0;
+}
+/* Step 4 — the semantic point of the block */
+.lp-how__step--featured {
+  background: var(--surface-inverse);
+  border-color: var(--surface-inverse);
+  box-shadow: var(--shadow-md);
+}
+.lp-how__step--featured .lp-how__num {
+  background: var(--brand-accent);
+}
+.lp-how__step--featured .lp-how__icon {
+  background: rgb(255 255 255 / 0.12);
+  color: var(--brand-accent);
+}
+.lp-how__step--featured .lp-how__title {
+  color: #fff;
+}
+.lp-how__step--featured .lp-how__text {
+  color: var(--text-on-dark-muted);
+}
+.lp-how__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-9);
+}
+
+@media (max-width: 1023px) {
+  /* Vertical timeline: rail on the left, big numbers guide the eye */
+  .lp-how__timeline {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    padding-left: 26px;
+  }
+  .lp-how__timeline::before {
+    top: 20px;
+    bottom: 40px;
+    left: 21px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  .lp-how__step {
+    margin-top: 0;
+    padding-top: var(--card-pad);
+  }
+  .lp-how__marker {
+    top: var(--space-5);
+    left: -48px;
+  }
+  .lp-how__cta {
+    margin-top: var(--space-7);
+  }
+  .lp-how__cta .pr-btn {
+    width: 100%;
+  }
+}

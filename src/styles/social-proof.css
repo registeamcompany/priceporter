@@ -1,0 +1,135 @@
+/* BLOCK 7 — SOCIAL PROOF. Featured quote (veteran-owned) with big typographic marks;
+   two smaller cards beside it. Mobile: read-more clamp + swipe carousel with dots.
+   Text only — no stock avatars. */
+.lp-proof__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: var(--space-7);
+  align-items: start;
+}
+.lp-proof__featured {
+  position: relative;
+  margin: 0;
+  background: var(--surface-inverse);
+  color: #fff;
+  border-radius: var(--radius-xl);
+  padding: var(--card-pad-lg);
+  padding-top: var(--space-9);
+  box-shadow: var(--shadow-md);
+}
+.lp-proof__mark {
+  position: absolute;
+  top: var(--space-5);
+  left: var(--card-pad-lg);
+  width: 44px;
+  height: 44px;
+  color: var(--brand-accent);
+  opacity: 0.9;
+}
+.lp-proof__quote {
+  margin: 0 0 var(--space-5);
+}
+.lp-proof__quote p {
+  font: var(--type-lead);
+  color: #fff;
+  margin: 0;
+}
+.lp-proof__readmore {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: var(--type-eyebrow);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: var(--space-4);
+}
+.lp-proof__attr {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.lp-proof__rest {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.lp-proof__track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.lp-proof__card {
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+  padding: var(--card-pad);
+}
+.lp-proof__card blockquote {
+  margin: 0;
+}
+.lp-proof__card p {
+  font: var(--type-body);
+  color: var(--text-body-color);
+  margin: 0;
+}
+.lp-proof__dots {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .lp-proof__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .lp-proof__featured {
+    padding: var(--card-pad);
+    padding-top: var(--space-8);
+  }
+  .lp-proof__mark {
+    left: var(--card-pad);
+  }
+  /* Clamp the long quote until "Read more" */
+  .lp-proof__quote.is-clamped p {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  /* Swipe carousel for the two smaller quotes */
+  .lp-proof__track {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: var(--space-4);
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+  }
+  .lp-proof__track::-webkit-scrollbar {
+    display: none;
+  }
+  .lp-proof__card {
+    flex: 0 0 88%;
+    scroll-snap-align: center;
+  }
+  .lp-proof__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  .lp-proof__dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neutral-300);
+    transition: background-color var(--duration-fast) var(--ease-standard);
+  }
+  .lp-proof__dots span.is-active {
+    background: var(--brand-accent);
+  }
+}

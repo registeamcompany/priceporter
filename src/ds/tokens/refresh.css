@@ -1,0 +1,58 @@
+/* "Refresh" theme — the modernised layer for campaign landing pages.
+   Same palette, same fonts, same flat banding, so a visitor moving from a landing page to
+   pricereporter.com does not feel a jump. What changes: soft 6px corners instead of hard 0,
+   a light shadow set, more air between sections, and sentence-case headings.
+   Apply with data-theme="refresh" on <body> (or any wrapper). Never on recreations of the live site. */
+[data-theme="refresh"]{
+/* corners: softened, still restrained */
+--radius-xs:4px;
+--radius-sm:6px;
+--radius-md:8px;
+--radius-lg:10px;
+--radius-xl:14px;
+--radius-card:10px;
+--radius-control:6px;
+--radius-app:8px;
+
+/* elevation: present but quiet */
+--shadow-xs:0 1px 2px rgb(12 65 102 / .06);
+--shadow-sm:0 2px 6px rgb(12 65 102 / .07);
+--shadow-md:0 8px 20px rgb(12 65 102 / .09);
+--shadow-lg:0 18px 44px rgb(12 65 102 / .12);
+--shadow-accent:0 8px 20px rgb(255 96 0 / .26);
+--shadow-brand:0 8px 20px rgb(8 81 133 / .18);
+
+/* rhythm: more breathing room */
+--section-y:112px;
+--section-y-tight:80px;
+--card-pad:28px;
+--card-pad-lg:36px;
+--control-h:46px;
+--control-h-lg:56px;
+
+/* type: display a step larger, headings sentence case by default */
+--text-display-1:clamp(38px,4vw,58px);
+--text-display-2:clamp(30px,2.8vw,42px);
+--tracking-display:-0.02em;
+--tracking-caps:-0.01em;
+--leading-body:1.65;
+
+/* motion: a small lift is allowed here */
+--lift-hover:translateY(-2px);/* @kind other */
+}
+[data-theme="refresh"] .pr-sectionhead__title{text-transform:none;letter-spacing:var(--tracking-display)}
+[data-theme="refresh"] .pr-sectionhead__eyebrow{letter-spacing:var(--tracking-label)}
+[data-theme="refresh"] .pr-card{box-shadow:var(--shadow-sm);border-color:var(--neutral-150)}
+[data-theme="refresh"] .pr-card[data-interactive="true"]:hover{transform:var(--lift-hover);box-shadow:var(--shadow-md)}
+[data-theme="refresh"] .pr-btn{transition:var(--transition-control),transform var(--duration-fast) var(--ease-standard)}
+[data-theme="refresh"] .pr-btn--accent{box-shadow:var(--shadow-accent)}
+[data-theme="refresh"] .pr-btn--accent:hover{transform:var(--lift-hover)}
+[data-theme="refresh"] .pr-tile{box-shadow:var(--shadow-sm)}
+[data-theme="refresh"] .pr-tile:hover{transform:var(--lift-hover);box-shadow:var(--shadow-md)}
+[data-theme="refresh"] .pr-service__rule{height:4px;border-radius:2px;width:56px}
+[data-theme="refresh"] .pr-service__title{min-height:0}
+[data-theme="refresh"] .pr-quote{border-radius:var(--radius-xl)}
+[data-theme="refresh"] .pr-cta{border-radius:var(--radius-xl)}
+[data-theme="refresh"] .pr-boxed-head{border-radius:var(--radius-xl)}
+[data-theme="refresh"] .pr-input,[data-theme="refresh"] .pr-select__el{border-radius:var(--radius-control)}
+[data-theme="refresh"] .pr-acc__item{border-bottom-color:var(--neutral-200)}

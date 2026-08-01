@@ -1,0 +1,69 @@
+/* Exit-intent popup — desktop only, text-only, one button + one dismiss link. */
+.lp-exit {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+}
+.lp-exit[hidden] {
+  display: none;
+}
+.lp-exit__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--surface-overlay);
+}
+.lp-exit__modal {
+  position: relative;
+  width: min(440px, calc(100vw - 48px));
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--card-pad-lg);
+  text-align: center;
+}
+.lp-exit__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+.lp-exit__close:hover {
+  color: var(--text-strong);
+}
+.lp-exit__title {
+  font: var(--type-h2);
+  color: var(--text-strong);
+  margin: 0 0 var(--space-3);
+}
+.lp-exit__body {
+  font: var(--type-body);
+  color: var(--text-body-color);
+  margin: 0 0 var(--space-6);
+}
+.lp-exit__dismiss {
+  display: inline-block;
+  margin-top: var(--space-4);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: var(--type-caption);
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+.lp-exit__dismiss:hover {
+  color: var(--text-strong);
+}
+
+@media (max-width: 1023px) {
+  /* Never on mobile — the sticky bar is the persistent reminder instead */
+  .lp-exit {
+    display: none !important;
+  }
+}
