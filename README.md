@@ -25,6 +25,32 @@ npm run preview  # serve the build
   archive `Price Reporter Design System.zip` in the repo root)
 - `public/assets/` — logo lockups, Capitol hero photo
 
+## Design grid
+
+- Outer rail: `.pr-container` — 1200px max, 24px gutters. Every section uses it.
+- Narrow reading rail: `--lp-rail` (800px) — problem body, quiz card, FAQ, team.
+  No other content widths are allowed; add new blocks on one of these two rails.
+- Vertical rhythm: `.pr-section` only (112px, refresh theme). No ad-hoc paddings.
+- Spacing steps come from the DS 4px scale (`--space-*`); cards use `--card-pad(-lg)`.
+
+## Materials needed from the client (to replace CSS mocks / strengthen blocks)
+
+1. **Vector logo (SVG/EPS).** The PNG lockups carry white antialiasing fringes on
+   tinted backgrounds — the brand guide's one asset gap.
+2. **Real OMS screenshot** (orders table or dashboard) — replaces the CSS mock in
+   the "Orders, Catalogs & Marketplaces" card. Strongest differentiator vs consultants.
+3. **Team / office working photos** (no staged group portraits, no stock) — unlocks
+   the full two-column layout for the "A team, not a middleman" block.
+4. **Testimonial attributions + client logo permissions** — names/companies exactly
+   as published, to attach to the three quotes; logos would slot beside attribution.
+5. **BBB seal artwork** — the "BBB accredited, A+" chip currently uses a generic icon.
+6. **QuickBooks / Amazon logo usage confirmation** — integration tags are text-only
+   until brand-use is cleared.
+7. **Real service-page URLs** for the three service-card links (currently they lead
+   to the form to keep one CTA per page).
+8. **CRM endpoint + call-tracking number** — forms and quiz log payloads to console;
+   phone number is hardcoded as 201-567-6646 everywhere.
+
 ## Wiring left for launch
 
 - Lead forms and the quiz currently swap to a success state and log the payload to the

@@ -2,7 +2,7 @@
    at a time; big tap-friendly answer cards; mandatory progress bar. */
 .lp-quiz__card {
   position: relative;
-  max-width: 70%;
+  max-width: var(--lp-rail);
   margin-inline: auto;
   background: #fff;
   color: var(--text-body-color);

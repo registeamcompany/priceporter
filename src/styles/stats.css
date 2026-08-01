@@ -11,6 +11,8 @@
   gap: var(--space-4);
   background: #fff;
   border: 1px solid var(--border-subtle);
+  /* echo of the site's navy numbers-box keyline */
+  border-top: 3px solid var(--blue-900);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-sm);
   padding: var(--card-pad-lg);

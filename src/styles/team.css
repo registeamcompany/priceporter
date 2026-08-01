@@ -1,11 +1,22 @@
 /* BLOCK 10 — TEAM. No real team photos supplied yet, so per spec the block runs
    narrower: text only on a calm background with small brand graphic. No stock. */
 .lp-team__inner {
+  position: relative;
+  overflow: hidden;
   text-align: center;
-  background: var(--surface-subtle);
-  border: 1px solid var(--border-subtle);
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
   border-radius: var(--radius-xl);
   padding: var(--space-10) var(--space-8);
+}
+/* oversized quiet brand mark bleeding off the corner */
+.lp-team__watermark {
+  position: absolute;
+  right: -60px;
+  bottom: -70px;
+  width: 280px;
+  opacity: 0.05;
+  pointer-events: none;
 }
 .lp-team__mark {
   display: inline-block;
@@ -15,7 +26,15 @@
   font: var(--type-display-2);
   letter-spacing: var(--tracking-display);
   color: var(--text-heading);
-  margin: 0 0 var(--space-5);
+  margin: 0 0 var(--space-4);
+}
+.lp-team__rule {
+  display: block;
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--brand-accent);
+  margin: 0 auto var(--space-5);
 }
 .lp-team__body {
   font: var(--type-lead);

@@ -18,6 +18,25 @@ body {
   overflow-x: hidden;
 }
 
+/* ---- Layout grid ----
+   One system for the whole page:
+   - .pr-container (1200px, 24px gutters) — every section's outer rail
+   - --lp-rail (800px) — the single narrow rail for reading blocks
+     (problem body, quiz card, FAQ, team). No other content widths allowed.
+   - section rhythm comes only from .pr-section (--section-y), never ad-hoc. */
+:root {
+  --lp-rail: 800px;
+}
+.lp-rail {
+  width: 100%;
+  max-width: var(--lp-rail);
+  margin-inline: auto;
+}
+/* Uniform gap between a section heading and its content */
+.pr-sectionhead {
+  margin-bottom: var(--space-9);
+}
+
 /* Inline SVG icon sizing (Lucide markup, inherits currentColor) */
 .ic {
   width: 20px;
@@ -33,6 +52,18 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+}
+.lp-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+/* keep the glowing accent button clear of neighbouring elements */
+.lp-form .pr-btn[type="submit"] {
+  margin-top: var(--space-2);
+}
+.lp-form__fine {
+  margin-top: var(--space-2);
 }
 .lp-form__title {
   font: var(--type-h3);

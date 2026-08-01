@@ -6,16 +6,23 @@
   background: var(--gradient-hero);
   padding-bottom: var(--space-10);
 }
+/* Faded Capitol photo. The photo lives in its own right-side box and the mask fades
+   relative to THAT box, so alpha is guaranteed to hit zero before the image's own
+   left edge — no visible seam. Multiply blend melts the near-white photo into the wash. */
 .lp-hero__photo {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 52%;
   background-image: url("/assets/hero-capitol.png");
   background-repeat: no-repeat;
   background-position: right bottom;
-  background-size: auto 112%;
-  -webkit-mask-image: linear-gradient(to right, transparent 46%, #000 78%);
-  mask-image: linear-gradient(to right, transparent 46%, #000 78%);
-  opacity: 0.8;
+  background-size: cover;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+  mix-blend-mode: multiply;
+  opacity: 0.6;
   pointer-events: none;
 }
 .lp-hero__container {

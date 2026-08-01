@@ -1,7 +1,8 @@
-/* BLOCK 3 — THE PROBLEM. Centered head, ~65% body column, bureaucratic-paper collage,
-   3-column comparison strip with the Price Reporter column featured. */
+/* BLOCK 3 — THE PROBLEM. Centered head, body copy on the 800px reading rail,
+   bureaucratic-artifact collage (SAM.gov window, proposal papers, clarification
+   letter), 3-column comparison strip with the Price Reporter column featured. */
 .lp-problem__body {
-  max-width: 65%;
+  max-width: var(--lp-rail);
   margin-inline: auto;
   font: var(--type-body);
   color: var(--text-body-color);
@@ -10,12 +11,80 @@
   margin-bottom: var(--space-5);
 }
 
-/* Paper-stack collage — recognizable process artifacts, desaturated, no stock */
+/* Artifact collage — recognizable process artifacts, desaturated, no stock */
 .lp-problem__art {
   position: relative;
-  max-width: 560px;
-  height: 240px;
-  margin: 0 auto var(--space-8);
+  max-width: 720px;
+  height: 300px;
+  margin: 0 auto var(--space-9);
+}
+.lp-problem__browser {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 58%;
+  background: #fff;
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.lp-problem__browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background: var(--neutral-100);
+  border-bottom: 1px solid var(--neutral-200);
+}
+.lp-problem__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neutral-300);
+}
+.lp-problem__url {
+  margin-left: 8px;
+  font: var(--type-caption);
+  font-size: 11px;
+  color: var(--text-muted);
+  background: #fff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-pill);
+  padding: 2px 10px;
+}
+.lp-problem__browser-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--space-5);
+}
+.lp-problem__browser-step {
+  font: var(--type-eyebrow);
+  font-size: 11px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--blue-700);
+}
+.lp-problem__line {
+  height: 7px;
+  background: var(--neutral-200);
+  border-radius: 4px;
+}
+.lp-problem__field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.lp-problem__field {
+  height: 22px;
+  border: 1px solid var(--neutral-300);
+  border-radius: 3px;
+  background: var(--neutral-50);
+}
+.lp-problem__field--error {
+  border-color: var(--red-500);
+  background: var(--red-100);
 }
 .lp-problem__paper {
   position: absolute;
@@ -27,50 +96,67 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 62%;
+  width: 42%;
 }
 .lp-problem__paper--back {
-  left: 0;
-  top: 22px;
-  transform: rotate(-3deg);
-  opacity: 0.65;
-}
-.lp-problem__paper--mid {
-  left: 19%;
-  top: 6px;
-  transform: rotate(1.5deg);
-  opacity: 0.85;
+  right: 13%;
+  top: 8px;
+  transform: rotate(2deg);
+  opacity: 0.75;
 }
 .lp-problem__paper--front {
   right: 0;
-  top: 34px;
-  transform: rotate(-1deg);
+  top: 84px;
+  transform: rotate(-2deg);
+  box-shadow: var(--shadow-md);
 }
 .lp-problem__paper-tag {
   font: var(--type-eyebrow);
+  font-size: 11px;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--blue-700);
 }
-.lp-problem__line {
-  height: 7px;
-  background: var(--neutral-200);
-  border-radius: 4px;
+.lp-problem__pages {
+  font: var(--type-caption);
+  font-size: 10px;
+  color: var(--text-subtle);
+  align-self: flex-end;
 }
 .lp-problem__stamp {
   position: absolute;
-  top: 12px;
+  top: -12px;
   right: 14px;
   font: var(--type-eyebrow);
   font-size: 11px;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--red-500);
+  background: #fff;
   border: 1.5px solid var(--red-500);
   border-radius: 3px;
   padding: 3px 8px;
-  transform: rotate(4deg);
-  opacity: 0.85;
+  transform: rotate(3deg);
+}
+.lp-problem__envelope {
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue-900);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: 12px;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  box-shadow: var(--shadow-md);
+  transform: rotate(-1deg);
+}
+.lp-problem__envelope .ic {
+  color: var(--brand-accent);
 }
 
 /* Comparison strip */
@@ -88,6 +174,7 @@
   padding: var(--card-pad-lg);
 }
 .lp-compare__col--featured {
+  position: relative;
   background: #fff;
   border: 2px solid var(--brand-accent);
   box-shadow: var(--shadow-md);
@@ -120,11 +207,17 @@
   color: var(--neutral-400);
   margin-top: 3px;
 }
+/* DIY column: muted red crosses; consultant column: neutral dashes */
+.lp-compare__col:first-child .lp-compare__list .ic {
+  color: var(--red-500);
+  opacity: 0.65;
+}
 .lp-compare__col--featured .lp-compare__list li {
   color: var(--text-strong);
 }
 .lp-compare__col--featured .lp-compare__list .ic {
   color: var(--brand-accent);
+  opacity: 1;
 }
 
 @media (max-width: 1023px) {
@@ -132,12 +225,25 @@
     max-width: none;
   }
   .lp-problem__art {
-    height: 210px;
-    margin-bottom: var(--space-6);
+    height: auto;
+    margin-bottom: var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
   }
-  .lp-problem__paper {
-    width: 74%;
-    padding: var(--space-4);
+  .lp-problem__browser,
+  .lp-problem__paper,
+  .lp-problem__envelope {
+    position: static;
+    width: 100%;
+    transform: none;
+    opacity: 1;
+  }
+  .lp-problem__paper--back {
+    display: none;
+  }
+  .lp-problem__stamp {
+    top: -10px;
   }
   /* Vertical stack: Price Reporter card closes the sequence, stays featured */
   .lp-compare {
