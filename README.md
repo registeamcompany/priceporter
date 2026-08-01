@@ -5,6 +5,22 @@ transactional intent). Built on the Price Reporter design system (refresh theme)
 modular Vite + Vanilla JS/CSS project — see `AI_DEVELOPMENT_GUIDE.md` for the
 architecture rules.
 
+## A/B variants
+
+Two pages ship from one codebase (multi-page Vite build):
+
+- **Variant A — risk-led** (`/index.html`, entry `src/main.js`): problem → comparison
+  table → process → quiz. Hypothesis: wins on returning / retargeting visitors.
+- **Variant B — desire-led** (`/variant-b.html`, entry `src/main-b.js`): prize
+  ($52B / $2.3M) → process → reassurance band → proof → "Win it / Run it / Grow it".
+  Objections live only in the FAQ. Hypothesis: wins on cold first-touch ad traffic.
+
+Shared between variants: all styles, scripts, design system, Header/Footer/StickyBar
+and the FAQ component. Copy-bearing blocks for B live in `src/components/b/`.
+`variant-b.html` carries `noindex` until the split test is wired up. Testing note from
+the copy deck: run 50/50 on top transactional ad groups for 3–4 weeks, primary metric
+CPA, secondary CR and scroll depth on the reassurance band.
+
 ## Run
 
 ```bash

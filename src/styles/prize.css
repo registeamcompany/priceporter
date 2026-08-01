@@ -1,0 +1,38 @@
+/* VARIANT B, BLOCK 3 — THE PRIZE. Opportunity before objections: body paragraph on
+   the reading rail, then the three stat cards (styles shared with stats.css). */
+.lp-prize__body {
+  font: var(--type-lead);
+  color: var(--text-body-color);
+  text-align: center;
+  margin-bottom: var(--space-9);
+}
+.lp-prize__cta {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-7) 0 0;
+}
+.lp-prize__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: var(--type-button);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+.lp-prize__link:hover {
+  color: var(--orange-600);
+}
+
+@media (max-width: 1023px) {
+  .lp-prize__body {
+    font-size: var(--text-body);
+    text-align: left;
+    margin-bottom: var(--space-7);
+  }
+}
