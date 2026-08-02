@@ -1,0 +1,83 @@
+/* V2 TEAM — the visual spec's full layout: text left, working-scene photo right.
+   Photo is a stock placeholder until real team photos arrive. */
+.v2-team__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: var(--space-11);
+  align-items: center;
+}
+.v2-team__title {
+  font: var(--type-display-2);
+  letter-spacing: var(--tracking-display);
+  color: var(--text-heading);
+  margin: 0 0 var(--space-4);
+}
+.v2-team__rule {
+  display: block;
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--brand-accent);
+  margin: 0 0 var(--space-5);
+}
+.v2-team__body {
+  font: var(--type-lead);
+  color: var(--text-body-color);
+  margin: 0;
+  max-width: 54ch;
+}
+.v2-team__photo {
+  position: relative;
+  margin: 0;
+}
+.v2-team__photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  filter: saturate(0.7);
+}
+.v2-team__badge {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  background: rgb(255 255 255 / 0.94);
+  backdrop-filter: var(--overlay-blur);
+  -webkit-backdrop-filter: var(--overlay-blur);
+  color: var(--blue-900);
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-caption);
+  border-radius: var(--radius-pill);
+  padding: 9px 16px;
+  box-shadow: var(--shadow-sm);
+}
+.v2-team__badge img {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+@media (max-width: 1023px) {
+  .v2-team__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  /* photo first on mobile, cropped horizontal */
+  .v2-team__photo {
+    order: -1;
+  }
+  .v2-team__photo img {
+    aspect-ratio: 16 / 9;
+  }
+  .v2-team__body {
+    font-size: var(--text-body);
+  }
+}
