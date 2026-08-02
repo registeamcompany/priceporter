@@ -21,6 +21,7 @@ import './styles/sticky-bar.css';
 import './styles/exit-popup.css';
 // v2 components + skin (skin loads last so its overrides win)
 import './styles/v2/hero-v2.css';
+import './styles/v2/hero-photo.css';
 import './styles/v2/cases-v2.css';
 import './styles/v2/stats-v2.css';
 import './styles/v2/team-v2.css';
