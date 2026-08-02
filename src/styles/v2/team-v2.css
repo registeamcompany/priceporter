@@ -26,6 +26,10 @@
   margin: 0;
   max-width: 54ch;
 }
+/* existing "How To Get a GSA Contract" video, reused from the current site page */
+.v2-team__video {
+  margin-top: var(--space-6);
+}
 .v2-team__photo {
   position: relative;
   margin: 0;

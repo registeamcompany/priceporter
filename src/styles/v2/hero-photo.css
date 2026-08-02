@@ -74,6 +74,27 @@
 .v2-hero--photo .v2-hero__sub {
   color: rgb(255 255 255 / 0.88);
 }
+/* proof line — the repeat-client quote sells the company on screen one */
+.v2-hero--photo .v2-hero__proof {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 0 var(--space-6);
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--brand-accent);
+  font: var(--type-body);
+  font-size: var(--text-body-sm);
+  font-style: italic;
+  color: rgb(255 255 255 / 0.82);
+  max-width: 52ch;
+}
+.v2-hero--photo .v2-hero__proof-who {
+  font-style: normal;
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-caption);
+  color: var(--orange-300);
+}
 .v2-hero--photo .v2-hero__call {
   color: rgb(255 255 255 / 0.88);
 }

@@ -1,0 +1,86 @@
+<section class="lp-quiz pr-inverse pr-section" id="quiz-section">
+  <div class="pr-container">
+    <div class="pr-sectionhead reveal">
+      <h2 class="pr-sectionhead__title">Would GSA buy what you sell? Find out in 60 seconds.</h2>
+      <p class="pr-sectionhead__sub">GSA has real requirements — at least two years in business and a track record of revenue. Four quick questions, and a specialist gives you an honest read within one business day.</p>
+    </div>
+
+    <div class="lp-quiz__card reveal" data-quiz>
+      <div class="lp-quiz__top">
+        <div class="lp-quiz__progress" data-quiz-progress-wrap>
+          <span class="lp-quiz__progress-label" data-quiz-progress-label>Question 1 of 4</span>
+          <span class="lp-quiz__bar"><span class="lp-quiz__bar-fill" data-quiz-progress-fill style="width: 25%"></span></span>
+        </div>
+        <span class="lp-quiz__timer">
+          <svg class="ic ic--sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+          60 seconds
+        </span>
+      </div>
+
+      <div class="lp-quiz__step" data-quiz-step="0">
+        <h3 class="lp-quiz__q">How long has your company been in business?</h3>
+        <div class="lp-quiz__answers">
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="Under 2 years">Under 2 years</button>
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="2–5 years">2–5 years</button>
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="5+ years">5+ years</button>
+        </div>
+      </div>
+
+      <div class="lp-quiz__step" data-quiz-step="1" hidden>
+        <h3 class="lp-quiz__q">Is your annual revenue above $100K?</h3>
+        <div class="lp-quiz__answers">
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="Yes">Yes</button>
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="Not yet">Not yet</button>
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="Prefer to discuss">Prefer to discuss</button>
+        </div>
+      </div>
+
+      <div class="lp-quiz__step" data-quiz-step="2" hidden>
+        <h3 class="lp-quiz__q">What do you sell?</h3>
+        <div class="lp-quiz__answers">
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="Products">Products</button>
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="Services">Services</button>
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="Both">Both</button>
+        </div>
+      </div>
+
+      <div class="lp-quiz__step" data-quiz-step="3" hidden>
+        <h3 class="lp-quiz__q">Are your products U.S.-made or TAA-compliant?</h3>
+        <div class="lp-quiz__answers">
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="Yes">Yes</button>
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="No">No</button>
+          <button type="button" class="lp-quiz__answer" data-quiz-answer="Not sure">Not sure</button>
+        </div>
+      </div>
+
+      <form class="lp-quiz__step lp-quiz__contact" data-quiz-step="4" data-quiz-contact hidden novalidate>
+        <h3 class="lp-quiz__q">Where should we send your result?</h3>
+        <label class="pr-field">
+          <span class="pr-field__label">Your name <span class="pr-field__req">*</span></span>
+          <span class="pr-input"><input class="pr-input__el" type="text" name="name" required autocomplete="name" placeholder="Your name" /></span>
+        </label>
+        <label class="pr-field">
+          <span class="pr-field__label">Work email <span class="pr-field__req">*</span></span>
+          <span class="pr-input"><input class="pr-input__el" type="email" name="email" required autocomplete="email" placeholder="you@company.com" /></span>
+        </label>
+        <label class="pr-field">
+          <span class="pr-field__label">Phone <span class="pr-field__req">*</span></span>
+          <span class="pr-input"><input class="pr-input__el" type="tel" name="phone" required autocomplete="tel" placeholder="201-567-6646" /></span>
+        </label>
+        <button type="submit" class="pr-btn pr-btn--accent pr-btn--lg pr-btn--full">Get My Result</button>
+      </form>
+
+      <div class="lp-quiz__step lp-quiz__result" data-quiz-step="result" hidden>
+        <span class="lp-form__success-icon">
+          <svg class="ic ic--lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+        </span>
+        <p class="lp-quiz__result-text">Thanks — a GSA specialist will review your answers and come back within one business day with a realistic read on your eligibility, including what to fix if you're not there yet. No pressure, no script.</p>
+      </div>
+
+      <button type="button" class="lp-quiz__back" data-quiz-back hidden>
+        <svg class="ic ic--sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+        Back
+      </button>
+    </div>
+  </div>
+</section>

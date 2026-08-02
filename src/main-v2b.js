@@ -30,16 +30,16 @@ import './styles/v2/v2.css';
 // markup — v2 components where the design changes structurally, B components otherwise
 import Header from './components/Header.html?raw';
 import HeroBV2 from './components/v2/HeroBV2.html?raw';
-import TrustBarB from './components/b/TrustBarB.html?raw';
+import TrustBarB2 from './components/v2/TrustBarB2.html?raw';
 import PrizeBV2 from './components/v2/PrizeBV2.html?raw';
-import HowItWorksB from './components/b/HowItWorksB.html?raw';
+import HowItWorksB2 from './components/v2/HowItWorksB2.html?raw';
 import ReassuranceB from './components/b/ReassuranceB.html?raw';
 import CasesBV2 from './components/v2/CasesBV2.html?raw';
-import WhyPRB from './components/b/WhyPRB.html?raw';
-import QuizB from './components/b/QuizB.html?raw';
+import WhyPRB2 from './components/v2/WhyPRB2.html?raw';
+import QuizB2 from './components/v2/QuizB2.html?raw';
 import TimingB from './components/b/TimingB.html?raw';
 import TeamBV2 from './components/v2/TeamBV2.html?raw';
-import Faq from './components/Faq.html?raw';
+import FaqB2 from './components/v2/FaqB2.html?raw';
 import FinalCtaB from './components/b/FinalCtaB.html?raw';
 import Footer from './components/Footer.html?raw';
 import StickyBar from './components/StickyBar.html?raw';
@@ -57,16 +57,16 @@ import { initAnimations } from './scripts/animations.js';
 const mounts = {
   header: Header,
   hero: HeroBV2,
-  'trust-bar': TrustBarB,
+  'trust-bar': TrustBarB2,
   prize: PrizeBV2,
-  'how-it-works': HowItWorksB,
+  'how-it-works': HowItWorksB2,
   reassurance: ReassuranceB,
   'social-proof': CasesBV2,
-  'why-pr': WhyPRB,
-  quiz: QuizB,
+  'why-pr': WhyPRB2,
+  quiz: QuizB2,
   timing: TimingB,
   team: TeamBV2,
-  faq: Faq,
+  faq: FaqB2,
   'final-cta': FinalCtaB,
   footer: Footer,
   'sticky-bar': StickyBar,

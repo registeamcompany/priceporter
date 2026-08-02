@@ -93,6 +93,23 @@
   margin-top: var(--space-9);
 }
 
+/* B2 variant: five steps across on desktop, tighter cards */
+@media (min-width: 1024px) {
+  .lp-how__timeline--five {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-4);
+  }
+}
+.lp-how__timeline--five .lp-how__step {
+  padding: var(--space-5);
+  padding-top: var(--space-7);
+}
+.lp-how__timeline--five .lp-how__icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--space-3);
+}
+
 @media (max-width: 1023px) {
   /* Vertical timeline: rail on the left, big numbers guide the eye */
   .lp-how__timeline {
