@@ -21,6 +21,8 @@ import './styles/exit-popup.css';
 // v2 components + skin (skin loads last so its overrides win)
 import './styles/v2/hero-v2.css';
 import './styles/v2/problem-v2.css';
+import './styles/v2/cases-v2.css';
+import './styles/v2/stats-v2.css';
 import './styles/v2/team-v2.css';
 import './styles/v2/v2.css';
 
@@ -32,9 +34,9 @@ import ProblemV2 from './components/v2/ProblemV2.html?raw';
 import HowItWorks from './components/HowItWorks.html?raw';
 import Quiz from './components/Quiz.html?raw';
 import Services from './components/Services.html?raw';
-import SocialProof from './components/SocialProof.html?raw';
+import CasesV2 from './components/v2/CasesV2.html?raw';
 import Why2026 from './components/Why2026.html?raw';
-import Stats from './components/Stats.html?raw';
+import StatsV2 from './components/v2/StatsV2.html?raw';
 import TeamV2 from './components/v2/TeamV2.html?raw';
 import Faq from './components/Faq.html?raw';
 import FinalCta from './components/FinalCta.html?raw';
@@ -59,9 +61,9 @@ const mounts = {
   'how-it-works': HowItWorks,
   quiz: Quiz,
   services: Services,
-  'social-proof': SocialProof,
+  'social-proof': CasesV2,
   'why-2026': Why2026,
-  stats: Stats,
+  stats: StatsV2,
   team: TeamV2,
   faq: Faq,
   'final-cta': FinalCta,

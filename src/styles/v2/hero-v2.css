@@ -118,6 +118,8 @@
   position: relative;
   padding: var(--space-8) 0;
 }
+/* Annotated placeholder panel — will become a cool blue duotone photo of federal
+   architecture. Keeps the final geometry so the swap is a background change. */
 .v2-hero__photo {
   position: absolute;
   top: 0;
@@ -125,13 +127,32 @@
   left: var(--space-11);
   right: calc(-1 * var(--gutter) - 40px);
   border-radius: var(--radius-xl);
-  /* cool blue duotone over the warm stock shot — brand imagery treatment */
-  background-image: linear-gradient(200deg, rgb(0 124 206 / 0.22) 0%, rgb(12 65 102 / 0.62) 100%), url("/assets/stock/capitol.jpg");
-  background-size: cover;
-  background-position: center;
-  background-color: var(--blue-200);
-  background-blend-mode: normal, luminosity;
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(200deg, var(--blue-100) 0%, var(--blue-200) 100%);
+  border: 2px dashed var(--blue-300);
+}
+/* the form card covers the panel's left side and the panel bleeds off-canvas on the
+   right — the note lives centered in the visible right strip, stacked vertically */
+.v2-hero__photo-note {
+  position: absolute;
+  top: 50%;
+  right: var(--space-6);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 116px;
+  background: rgb(255 255 255 / 0.88);
+  color: var(--blue-700);
+  font: var(--type-caption);
+  font-size: 11px;
+  line-height: 1.4;
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  text-align: center;
+}
+.v2-hero__photo-note .ic {
+  flex: none;
 }
 .v2-hero__formwrap {
   position: relative;

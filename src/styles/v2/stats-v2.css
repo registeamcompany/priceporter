@@ -1,0 +1,86 @@
+/* V2 STATS — one solid navy panel instead of three thin cards: huge orange figures
+   over a deep gradient with a quiet orange glow, myth-buster as the panel footnote. */
+.v2-stats__panel {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(640px 320px at 88% -10%, rgb(255 96 0 / 0.18), transparent 70%),
+    radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(135deg, var(--blue-950) 0%, var(--blue-900) 100%);
+  background-size: auto, 22px 22px, auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-10) var(--space-9);
+  color: #fff;
+}
+.v2-stats__cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+.v2-stats__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-left: var(--space-6);
+  border-left: 1px solid rgb(255 255 255 / 0.18);
+}
+.v2-stats__col:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.v2-stats__num {
+  font: var(--type-stat);
+  font-size: clamp(40px, 3.8vw, 56px);
+  letter-spacing: var(--tracking-display);
+  color: var(--brand-accent);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.v2-stats__label {
+  font: var(--type-body);
+  font-size: var(--text-body-sm);
+  color: var(--text-on-dark-muted);
+  max-width: 30ch;
+}
+.v2-stats__myth {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin: var(--space-8) 0 0;
+  padding-top: var(--space-6);
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+  font: var(--type-body);
+  color: #fff;
+}
+.v2-stats__myth .ic {
+  flex: none;
+  color: var(--brand-accent);
+  margin-top: 2px;
+}
+.v2-stats__myth em {
+  font-style: italic;
+}
+
+@media (max-width: 1023px) {
+  .v2-stats__panel {
+    padding: var(--space-7) var(--space-5);
+  }
+  .v2-stats__cols {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .v2-stats__col {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid rgb(255 255 255 / 0.14);
+    padding-top: var(--space-5);
+  }
+  .v2-stats__col:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .v2-stats__num {
+    font-size: 38px;
+  }
+}
