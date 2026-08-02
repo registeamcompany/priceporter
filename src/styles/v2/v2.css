@@ -162,5 +162,11 @@ body.v2 .lp-header__inner {
   }
   body.v2 .pr-sectionhead {
     margin-bottom: var(--space-7);
+    /* centered heads split into 4-6 ragged lines on a phone; the whole mobile
+       page is left-set, so section heads join that vertical. Short service
+       elements (buttons, micro-copy, the numbers strip) stay centered. */
+    align-items: flex-start;
+    text-align: left;
+    margin-inline: 0;
   }
 }
