@@ -21,9 +21,9 @@ body.v2 {
   --shadow-lg: 0 4px 8px rgb(6 24 44 / 0.05), 0 24px 64px rgb(6 24 44 / 0.14);
   --shadow-accent: 0 8px 24px rgb(255 96 0 / 0.28);
 
-  /* rhythm: even more air */
-  --section-y: 128px;
-  --section-y-tight: 88px;
+  /* rhythm: open, but without dead holes between light bands */
+  --section-y: 104px;
+  --section-y-tight: 72px;
   --card-pad: 32px;
   --card-pad-lg: 40px;
 
