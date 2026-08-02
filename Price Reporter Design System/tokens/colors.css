@@ -1,0 +1,99 @@
+/* PriceReporter color system.
+   Anchors from the brand guide: headline blue #085185, logo blue #3F8DCC, logo grey 60% #6A6D6E.
+   Anchors sampled from live pricereporter.com screenshots (1 Aug 2026): site accent orange #FF6000,
+   navy band #0C4166, utility bar #383838, section band grey #E4E3E3, hero tiles #007CCE/#005E9C/#00416D,
+   hero wash #D8EEFE → #BDDCEF. Logo-cube orange #FF5624 is kept for the mark only. */
+:root{
+/* --- Blue (primary) --- */
+--blue-50:#f1f7fc;--blue-100:#ddeaf6;--blue-200:#bddcef;/* hero wash top */
+--blue-300:#7fb4df;
+--blue-400:#3f8dcc;/* logo blue */
+--blue-500:#007cce;/* tile light */
+--blue-600:#005e9c;/* tile mid */
+--blue-700:#085185;/* headline blue — section headings, primary buttons */
+--blue-800:#00416d;/* tile dark */
+--blue-900:#0c4166;/* navy band, footer, contact block */
+--blue-950:#062f4a;
+--blue-wash:#d8eefe;/* hero background low */
+
+/* --- Orange --- */
+--orange-50:#fff4ef;--orange-100:#ffe6d9;--orange-200:#ffd5c2;--orange-300:#ffb38c;
+--orange-400:#ff7a50;
+--orange-500:#ff6000;/* SITE ACCENT — numbers, chevrons, rules, CTAs */
+--orange-600:#d84f00;/* hover */
+--orange-700:#712314;/* logo mark shadow side */
+--orange-logo:#ff5624;/* logo cube face — artwork only, not for UI */
+
+/* --- Neutrals --- */
+--neutral-0:#ffffff;--neutral-50:#fafafa;--neutral-100:#f2f2f2;
+--neutral-150:#ebeaea;
+--neutral-200:#e4e3e3;/* section band grey */
+--neutral-300:#c9c9c9;--neutral-400:#9a9a9a;
+--neutral-500:#6a6d6e;/* brand grey */
+--neutral-600:#555555;
+--neutral-700:#3f3f3f;
+--neutral-800:#383838;/* utility bar */
+--neutral-900:#1a1a1a;/* headline black */
+
+/* --- Semantic status --- */
+--green-100:#e2f3ea;--green-500:#1f8a5f;--green-700:#146046;
+--amber-100:#fdf1d8;--amber-500:#c98a00;--amber-700:#8a5f00;
+--red-100:#fbe4e1;--red-500:#c0392b;--red-700:#8c2318;
+
+/* --- Brand aliases --- */
+--brand-primary:var(--blue-700);
+--brand-primary-hover:var(--blue-900);
+--brand-primary-active:var(--blue-950);
+--brand-secondary:var(--blue-500);
+--brand-accent:var(--orange-500);
+--brand-accent-hover:var(--orange-600);
+--brand-grey:var(--neutral-500);
+
+/* --- Text --- */
+--text-strong:var(--neutral-900);
+--text-body:var(--neutral-700);
+--text-muted:var(--neutral-500);
+--text-subtle:var(--neutral-400);
+--text-heading:var(--blue-700);
+--text-on-dark:var(--neutral-0);
+--text-on-dark-muted:rgb(255 255 255 / .78);
+--text-accent:var(--orange-500);
+--text-link:var(--blue-700);
+--text-link-hover:var(--orange-500);
+
+/* --- Surfaces --- */
+--surface-page:var(--neutral-0);
+--surface-band:var(--neutral-200);/* alternating grey section */
+--surface-subtle:var(--neutral-100);
+--surface-sunken:var(--neutral-150);
+--surface-card:var(--neutral-0);
+--surface-card-hover:var(--neutral-50);
+--surface-inverse:var(--blue-900);
+--surface-inverse-soft:var(--blue-800);
+--surface-brand:var(--blue-700);
+--surface-utility:var(--neutral-800);/* top utility bar */
+--surface-accent-soft:var(--orange-50);
+--surface-info-soft:var(--blue-50);
+--surface-overlay:rgb(12 65 102 / .62);
+
+/* --- Tile blues (hero navigation blocks, in order of depth) --- */
+--tile-1:var(--blue-500);--tile-2:var(--blue-600);--tile-3:var(--blue-800);
+
+/* --- Borders --- */
+--border-subtle:var(--neutral-200);
+--border-default:var(--neutral-300);
+--border-strong:var(--neutral-400);
+--border-brand:var(--blue-700);
+--border-accent:var(--orange-500);
+--border-on-dark:rgb(255 255 255 / .28);
+--focus-ring:0 0 0 3px rgb(0 124 206 / .38);
+
+/* --- Data-viz sequence --- */
+--viz-1:var(--blue-700);--viz-2:var(--blue-500);--viz-3:var(--orange-500);
+--viz-4:var(--green-500);--viz-5:var(--neutral-400);--viz-6:var(--blue-200);
+
+/* --- Gradients: only the hero wash and the two flat band fills --- */
+--gradient-hero:linear-gradient(180deg,#d8eefe 0%,#bddcef 100%);/* @kind color */
+--gradient-navy:linear-gradient(180deg,#0c4166 0%,#0c4166 100%);/* @kind color */
+--gradient-wash:linear-gradient(180deg,#f1f7fc 0%,#ffffff 100%);/* @kind color */
+}

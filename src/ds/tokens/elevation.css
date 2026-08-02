@@ -1,0 +1,15 @@
+/* Elevation. The live site is FLAT: no shadows anywhere — separation comes from flat color
+   bands, 1px rules and the orange divider. Shadows exist only for genuinely floating layers
+   (dropdown, modal) and for in-product panels. Never put a shadow on a marketing card. */
+:root{
+--shadow-none:none;
+--shadow-xs:0 1px 2px rgb(12 65 102 / .07);
+--shadow-sm:0 1px 3px rgb(12 65 102 / .09);
+--shadow-md:0 4px 12px rgb(12 65 102 / .10);
+--shadow-lg:0 12px 28px rgb(12 65 102 / .14);
+--shadow-xl:0 24px 60px rgb(12 65 102 / .20);
+--shadow-inset:inset 0 -3px 0 var(--orange-500);/* underline-on-hover treatment */
+--shadow-accent:none;
+--shadow-brand:none;
+--overlay-blur:saturate(140%) blur(8px);/* @kind other */
+}

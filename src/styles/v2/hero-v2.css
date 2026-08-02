@@ -1,0 +1,212 @@
+/* V2 HERO — Stripe-clean split: copy on white with skewed gradient underlays,
+   form card layered over a duotone federal-architecture photo panel. */
+.v2-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f9fc 100%);
+}
+/* skewed translucent bands, brand blues + a whisper of orange */
+.v2-hero__stripes {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: -260px;
+  height: 560px;
+  transform: skewY(-7deg);
+  pointer-events: none;
+}
+.v2-hero__stripes span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 130px;
+}
+.v2-hero__stripes span:nth-child(1) {
+  top: 120px;
+  background: linear-gradient(90deg, var(--blue-wash) 0%, rgb(189 220 239 / 0.45) 60%, transparent 100%);
+}
+.v2-hero__stripes span:nth-child(2) {
+  top: 250px;
+  background: linear-gradient(90deg, transparent 0%, rgb(216 238 254 / 0.7) 45%, rgb(241 247 252 / 0.4) 100%);
+}
+.v2-hero__stripes span:nth-child(3) {
+  top: 380px;
+  left: 45%;
+  background: linear-gradient(90deg, transparent 0%, rgb(255 230 217 / 0.5) 100%);
+}
+.v2-hero__container {
+  position: relative;
+  z-index: 1;
+}
+.v2-hero__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-block: var(--space-6);
+}
+.v2-hero__topbar img {
+  display: block;
+}
+.v2-hero__topphone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 16px;
+  color: var(--blue-900);
+  white-space: nowrap;
+}
+.v2-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: var(--space-11);
+  align-items: center;
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-12);
+}
+.v2-hero__eyebrow {
+  font: var(--type-eyebrow);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin: 0 0 var(--space-5);
+}
+.v2-hero__title {
+  font: var(--type-display-1);
+  letter-spacing: var(--tracking-display);
+  color: var(--text-strong);
+  margin: 0 0 var(--space-5);
+  max-width: 19ch;
+  text-wrap: balance;
+}
+.v2-hero__rule {
+  display: block;
+  width: 96px;
+  height: 5px;
+  background: var(--neutral-900);
+  margin: 0 0 var(--space-6);
+}
+.v2-hero__sub {
+  font: var(--type-lead);
+  color: var(--text-body-color);
+  margin: 0 0 var(--space-7);
+  max-width: 54ch;
+}
+.v2-hero__mobile-cta {
+  display: none;
+}
+.v2-hero__micro {
+  font: var(--type-caption);
+  color: var(--text-muted);
+  margin: var(--space-3) 0 0;
+  text-align: center;
+}
+.v2-hero__call {
+  font: var(--type-body);
+  color: var(--text-strong);
+  margin: 0;
+}
+.v2-hero__call a {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+}
+
+/* photo panel bleeding off the right edge, navy duotone overlay */
+.v2-hero__visual {
+  position: relative;
+  padding: var(--space-8) 0;
+}
+/* Annotated placeholder panel — will become a cool blue duotone photo of federal
+   architecture. Keeps the final geometry so the swap is a background change. */
+.v2-hero__photo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--space-11);
+  right: calc(-1 * var(--gutter) - 40px);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(200deg, var(--blue-100) 0%, var(--blue-200) 100%);
+  border: 2px dashed var(--blue-300);
+}
+/* the form card covers the panel's left side and the panel bleeds off-canvas on the
+   right — the note lives centered in the visible right strip, stacked vertically */
+.v2-hero__photo-note {
+  position: absolute;
+  top: 50%;
+  right: var(--space-6);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 116px;
+  background: rgb(255 255 255 / 0.88);
+  color: var(--blue-700);
+  font: var(--type-caption);
+  font-size: 11px;
+  line-height: 1.4;
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  text-align: center;
+}
+.v2-hero__photo-note .ic {
+  flex: none;
+}
+.v2-hero__formwrap {
+  position: relative;
+  max-width: 440px;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--card-pad-lg);
+}
+
+@media (max-width: 1023px) {
+  .v2-hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-9);
+  }
+  .v2-hero__stripes {
+    display: none;
+  }
+  .v2-hero__title {
+    max-width: none;
+  }
+  .v2-hero__rule {
+    display: none;
+  }
+  .v2-hero__sub {
+    font-size: var(--text-body);
+    margin-bottom: var(--space-5);
+  }
+  .v2-hero__mobile-cta {
+    display: block;
+    margin-bottom: var(--space-5);
+  }
+  .v2-hero__call {
+    text-align: center;
+  }
+  .v2-hero__visual {
+    padding: 0;
+  }
+  .v2-hero__photo {
+    display: none;
+  }
+  .v2-hero__formwrap {
+    display: none;
+    max-width: none;
+    padding: var(--card-pad);
+  }
+  .v2-hero__formwrap.is-open {
+    display: block;
+  }
+  /* the mobile CTA already carried the offer + microcopy — don't repeat it */
+  .v2-hero__formwrap .lp-form__head {
+    display: none;
+  }
+}

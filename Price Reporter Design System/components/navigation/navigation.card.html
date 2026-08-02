@@ -1,0 +1,24 @@
+<!-- @dsCard group="Components" viewport="700x360" name="Navigation — FAQ accordion, tabs, breadcrumb" subtitle="Orange chevron FAQ rows plus in-product tabs and the page trail" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>body{padding:20px;background:#fff}.mb{margin-bottom:18px}</style></head><body><div id="root"></div>
+<script>window.PR_ICON_BASE='../../assets/icons/';window.PR_ASSET_BASE='../../assets/';</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Tabs, Accordion, Breadcrumb } = window.PriceReporterDesignSystem_2cd382;
+function Demo(){
+  const [t,setT] = React.useState('open');
+  const [p,setP] = React.useState('m');
+  return (<>
+  <div className="mb"><Breadcrumb items={[{label:'Home',href:'#'},{label:'GSA Contract',href:'#'},{label:'Catalog upload'}]}/></div>
+  <div className="mb"><Tabs value={t} onChange={setT} items={[{id:'open',label:'Open orders',count:32},{id:'shipped',label:'Shipped',count:118},{id:'invoiced',label:'Invoiced'}]}/></div>
+  <div className="mb"><Tabs variant="pill" value={p} onChange={setP} items={[{id:'m',label:'Month'},{id:'q',label:'Quarter'},{id:'y',label:'Fiscal year'}]}/></div>
+  <Accordion items={[
+    {id:'q1',question:'Should You Use a GSA Contract Specialist, Or Do It Yourself?',answer:'GSA contracts require ongoing maintenance and knowledge of technical procedures for modifications and catalog uploads.'},
+    {id:'q2',question:'Why get a GSA business contract?',answer:'The MAS Program is a $45 billion government contract; the average Schedule holder wins around $2.3 million each year.'},
+    {id:'q3',question:'How long do GSA contracts last?',answer:'Five years, extendable up to 20 years in total.'}]}/>
+  </>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

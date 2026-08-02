@@ -1,0 +1,115 @@
+/* V2 TEAM — Reverse layout for visual rhythm: Photo Left, Copy Right.
+   High-trust corporate working scene photo replacing generic wireframes. */
+
+.v2-team__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: var(--space-10);
+  align-items: center;
+}
+
+.v2-team__photo {
+  position: relative;
+  margin: 0;
+}
+
+.v2-team__ph {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--blue-50);
+}
+
+.v2-team__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.v2-team__badge {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  background: rgb(255 255 255 / 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--blue-900);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-caption);
+  border-radius: var(--radius-pill);
+  padding: 9px 16px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgb(255 255 255 / 0.6);
+}
+
+.v2-team__badge img {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.v2-team__title {
+  font: var(--type-display-2);
+  letter-spacing: var(--tracking-display);
+  color: var(--text-heading);
+  margin: 0 0 var(--space-4);
+}
+
+.v2-team__rule {
+  display: block;
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--brand-accent);
+  margin: 0 0 var(--space-5);
+}
+
+.v2-team__body {
+  font: var(--type-lead);
+  color: var(--text-body-color);
+  margin: 0 0 var(--space-6) 0;
+  max-width: 54ch;
+}
+
+/* "Watch: How To Get a GSA Contract" Video button */
+.v2-team__video {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.v2-team__video:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 1023px) {
+  .v2-team__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .v2-team__photo {
+    order: -1;
+  }
+  .v2-team__ph {
+    aspect-ratio: 16 / 9;
+  }
+  .v2-team__body {
+    font-size: var(--text-body);
+  }
+}

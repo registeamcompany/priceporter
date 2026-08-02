@@ -1,0 +1,79 @@
+/* V2 PROBLEM — real photo of the paperwork with floating process chips, body copy
+   beside it. The comparison table below reuses the shared .lp-compare styles. */
+.v2-problem__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: var(--space-10);
+  align-items: center;
+  margin-bottom: var(--space-10);
+}
+.v2-problem__photo {
+  position: relative;
+  margin: 0;
+}
+.v2-problem__ph {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+.v2-problem__stamp {
+  position: absolute;
+  top: 18px;
+  right: -14px;
+  font: var(--type-eyebrow);
+  font-size: 11px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--red-500);
+  background: #fff;
+  border: 1.5px solid var(--red-500);
+  border-radius: var(--radius-xs);
+  padding: 5px 10px;
+  transform: rotate(3deg);
+  box-shadow: var(--shadow-sm);
+}
+.v2-problem__chip {
+  position: absolute;
+  left: 24px;
+  bottom: -18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue-900);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: 12px;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  box-shadow: var(--shadow-md);
+}
+.v2-problem__chip .ic {
+  color: var(--brand-accent);
+}
+.v2-problem__body {
+  font: var(--type-body);
+  color: var(--text-body-color);
+}
+.v2-problem__body p {
+  margin-bottom: var(--space-5);
+}
+.v2-problem__body p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 1023px) {
+  .v2-problem__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+  .v2-problem__stamp {
+    right: 10px;
+  }
+  .v2-problem__chip {
+    left: 12px;
+    right: 12px;
+    bottom: -14px;
+    font-size: 11px;
+  }
+}

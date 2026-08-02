@@ -1,0 +1,46 @@
+/* VARIANT B, BLOCK 5 — REASSURANCE BAND. The strongest approved claim, promoted up
+   the page as a full-width navy band with the orange keyline pair. */
+.lp-reassure {
+  padding-block: var(--space-9);
+  border-top: 3px solid var(--brand-accent);
+  background-image: radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.lp-reassure__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  max-width: calc(var(--lp-rail) + 160px);
+}
+.lp-reassure__icon {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgb(255 255 255 / 0.1);
+  color: var(--brand-accent);
+}
+.lp-reassure__text {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-lead);
+  line-height: 1.55;
+  color: #fff;
+  margin: 0;
+}
+
+@media (max-width: 1023px) {
+  .lp-reassure {
+    padding-block: var(--space-8);
+  }
+  .lp-reassure__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+  .lp-reassure__text {
+    font-size: var(--text-body);
+  }
+}

@@ -1,0 +1,15 @@
+/* Corner radii. pricereporter.com is a SQUARE-EDGED design: every tile, button, input and
+   band on the live site has 0px corners. The system keeps that as the default; the 2–4px
+   steps are the only sanctioned "slightly more modern" softening, for app surfaces. */
+:root{
+--radius-none:0;
+--radius-xs:2px;
+--radius-sm:3px;
+--radius-md:4px;
+--radius-lg:4px;
+--radius-xl:0;
+--radius-pill:999px;
+--radius-card:var(--radius-none);
+--radius-control:var(--radius-none);
+--radius-app:var(--radius-md);/* in-product panels only */
+}

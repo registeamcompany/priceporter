@@ -1,0 +1,32 @@
+<!-- @dsCard group="Components" viewport="700x400" name="Forms — input, select, choice, switch" subtitle="Square fields, orange focus, plus the white on-navy variant from the Contact block" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>body{padding:20px;background:#fff}.g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 20px;align-items:start}.stack{display:flex;flex-direction:column;gap:12px}.navy{background:var(--surface-inverse);padding:16px;margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}</style></head><body><div id="root"></div>
+<script>window.PR_ICON_BASE='../../assets/icons/';window.PR_ASSET_BASE='../../assets/';</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Input, Select, Checkbox, Radio, Switch } = window.PriceReporterDesignSystem_2cd382;
+ReactDOM.createRoot(document.getElementById('root')).render(<>
+<div className="g">
+<Input label="Work email" required type="email" placeholder="you@company.com" icon="mail"/>
+<Input label="GSA contract number" hint="Format: 47QSWA18D008F" defaultValue="47QSWA18D008F"/>
+<Input label="Annual GSA sales" prefix="$" suffix="USD" defaultValue="2,300,000"/>
+<Input label="SAM.gov UEI" error="This UEI could not be verified" defaultValue="X4KLM9"/>
+<Select label="Schedule" options={['MAS — Multiple Award Schedule','VA Schedule','Other']}/>
+<Input label="Catalog file" disabled defaultValue="No file selected"/>
+<Input label="How can we help?" multiline rows={3} placeholder="Tell us about your business…"/>
+<div className="stack">
+<Checkbox label="Products are TAA compliant" description="Made in the US or a designated country" defaultChecked/>
+<Radio name="p" label="I need a new GSA contract" defaultChecked/>
+<Radio name="p" label="I already hold a contract"/>
+<Switch label="Email me catalog upload reports" defaultChecked/>
+</div>
+</div>
+<div className="navy">
+<Input onDark placeholder="Name" aria-label="Name"/>
+<Input onDark placeholder="Company" aria-label="Company"/>
+<Input onDark placeholder="Email" aria-label="Email"/>
+</div>
+</>);
+</script></body></html>

@@ -1,0 +1,39 @@
+<!-- @dsCard group="Portal" viewport="1400x900" name="GSA portal — dashboard" subtitle="Navy sidebar app shell, stat row, order table, catalog sync panel" -->
+<!-- @startingPoint section="Portal" subtitle="Order Management / Catalog Upload portal: dashboard, upload, compliance" viewport="1400x900" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Price Reporter — GSA Order Management</title><link rel="stylesheet" href="../../styles.css"><style>body{background:var(--surface-subtle)}.kit-switch{position:fixed;right:16px;bottom:16px;z-index:80;display:flex;gap:6px;background:rgb(255 255 255 / .92);backdrop-filter:var(--overlay-blur);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:5px;box-shadow:var(--shadow-lg)}.kit-switch button{border:0;background:none;cursor:pointer;font:var(--type-button);font-size:12px;color:var(--text-muted);padding:8px 13px;border-radius:var(--radius-pill)}.kit-switch button[data-on="true"]{background:var(--brand-primary);color:#fff}</style></head><body>
+<div id="root"></div>
+<script>window.PR_ICON_BASE='../../assets/icons/';window.PR_ASSET_BASE='../../assets/';</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="AppShell.jsx"></script>
+<script type="text/babel" src="DashboardScreen.jsx"></script>
+<script type="text/babel" src="CatalogUploadScreen.jsx"></script>
+<script type="text/babel" src="ComplianceScreen.jsx"></script>
+<script type="text/babel">
+const { Button, IconButton } = window.PriceReporterDesignSystem_2cd382;
+const SCREENS = {
+  dashboard: { title: 'Dashboard', subtitle: 'Acme Supply Co. · contract 47QSWA18D008F', Comp: () => <window.DashboardScreen/>, actions: <Button variant="primary" iconLeft="upload">Upload catalog</Button> },
+  orders: { title: 'Dashboard', subtitle: 'Acme Supply Co. · contract 47QSWA18D008F', Comp: () => <window.DashboardScreen/>, actions: <Button variant="primary" iconLeft="upload">Upload catalog</Button> },
+  catalog: { title: 'Catalog upload', subtitle: 'GSA Advantage · EDI transmission', Comp: () => <window.CatalogUploadScreen/>, actions: <Button variant="secondary" iconLeft="refresh-cw">Re-validate</Button> },
+  contracts: { title: 'Compliance', subtitle: 'Contract 47QSWA18D008F · option period 2 of 4', Comp: () => <window.ComplianceScreen/>, actions: <Button variant="secondary" iconLeft="file-text">Request mod</Button> },
+  compliance: { title: 'Compliance', subtitle: 'Contract 47QSWA18D008F · option period 2 of 4', Comp: () => <window.ComplianceScreen/>, actions: <Button variant="secondary" iconLeft="file-text">Request mod</Button> },
+  reports: { title: 'Compliance', subtitle: 'Contract 47QSWA18D008F · option period 2 of 4', Comp: () => <window.ComplianceScreen/>, actions: null },
+};
+function App(){
+  const [route,setRoute] = React.useState('dashboard');
+  const s = SCREENS[route];
+  return (<>
+    <window.AppShell route={route} onNavigate={setRoute} title={s.title} subtitle={s.subtitle} actions={s.actions}>
+      <s.Comp/>
+    </window.AppShell>
+    <div className="kit-switch">
+      {[['dashboard','Dashboard'],['catalog','Catalog upload'],['compliance','Compliance']].map(([id,label])=>(
+        <button key={id} data-on={route===id} onClick={()=>setRoute(id)}>{label}</button>
+      ))}
+    </div>
+  </>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

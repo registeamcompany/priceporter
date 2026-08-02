@@ -1,0 +1,32 @@
+/* Mobile sticky bottom bar: [Call] · [Free Assessment], 50/50. Appears after the hero
+   is scrolled, hides while a form is on screen. Mobile only — no exit-intent there. */
+.lp-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 55;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  padding-bottom: calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+  background: rgb(12 65 102 / 0.97);
+  backdrop-filter: var(--overlay-blur);
+  -webkit-backdrop-filter: var(--overlay-blur);
+  transform: translateY(110%);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+.lp-sticky.is-visible {
+  transform: translateY(0);
+}
+.lp-sticky__call,
+.lp-sticky__cta {
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .lp-sticky {
+    display: grid;
+  }
+}

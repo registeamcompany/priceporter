@@ -1,0 +1,141 @@
+/* V2 HERO — full-bleed photo variant (.v2-hero--photo). One high-quality U.S. Capitol
+   shot under a navy gradient scrim: copy in white on the left, the lead-form card
+   floating on the right. Used by /v2-b.html; the split-panel hero on /v2.html stays. */
+/* doubled class keeps this override winning regardless of chunk order in the
+   multi-page build */
+.v2-hero.v2-hero--photo {
+  background: var(--blue-950);
+}
+.v2-hero--photo .v2-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(92deg,
+      rgb(6 24 44 / 0.94) 0%,
+      rgb(6 24 44 / 0.8) 34%,
+      rgb(8 40 66 / 0.5) 64%,
+      rgb(8 40 66 / 0.34) 100%),
+    url("/assets/hero-capitol-full.jpg");
+  background-size: auto, cover;
+  background-position: center, center 30%;
+  background-repeat: no-repeat;
+}
+/* soften the cut into the white trust strip below */
+.v2-hero--photo .v2-hero__bg::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 90px;
+  background: linear-gradient(180deg, transparent 0%, rgb(6 24 44 / 0.55) 100%);
+}
+
+/* top bar: mark + white wordmark (the brand's on-navy pattern), white phone */
+.v2-hero--photo .v2-hero__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.v2-hero--photo .v2-hero__brand img {
+  flex: none;
+}
+.v2-hero--photo .v2-hero__wordmark {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: 17px;
+  letter-spacing: var(--tracking-logo);
+  color: #fff;
+}
+.v2-hero--photo .v2-hero__wordmark b {
+  font-weight: var(--weight-medium);
+  color: var(--blue-300);
+}
+.v2-hero--photo .v2-hero__topphone {
+  color: #fff;
+}
+
+/* copy goes white over the scrim */
+.v2-hero--photo .v2-hero__grid {
+  align-items: center;
+  padding-top: var(--space-9);
+  padding-bottom: var(--space-12);
+}
+.v2-hero--photo .v2-hero__eyebrow {
+  color: var(--orange-300);
+}
+.v2-hero--photo .v2-hero__title {
+  color: #fff;
+  text-shadow: 0 2px 24px rgb(6 24 44 / 0.45);
+}
+.v2-hero--photo .v2-hero__rule {
+  background: var(--brand-accent);
+}
+.v2-hero--photo .v2-hero__sub {
+  color: rgb(255 255 255 / 0.88);
+}
+/* proof line — the repeat-client quote sells the company on screen one */
+.v2-hero--photo .v2-hero__proof {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 0 var(--space-6);
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--brand-accent);
+  font: var(--type-body);
+  font-size: var(--text-body-sm);
+  font-style: italic;
+  color: rgb(255 255 255 / 0.82);
+  max-width: 52ch;
+}
+.v2-hero--photo .v2-hero__proof-who {
+  font-style: normal;
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-caption);
+  color: var(--orange-300);
+}
+.v2-hero--photo .v2-hero__call {
+  color: rgb(255 255 255 / 0.88);
+}
+.v2-hero--photo .v2-hero__call a {
+  color: #fff;
+}
+.v2-hero--photo .v2-hero__micro {
+  color: rgb(255 255 255 / 0.75);
+}
+
+/* form card floats directly on the photo */
+.v2-hero--photo .v2-hero__visual {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+.v2-hero--photo .v2-hero__formwrap {
+  box-shadow: 0 8px 16px rgb(6 24 44 / 0.18), 0 32px 80px rgb(6 24 44 / 0.38);
+  border: 0;
+}
+
+@media (max-width: 1023px) {
+  /* mobile stays fast and clean: solid navy, no photo download */
+  .v2-hero--photo .v2-hero__bg {
+    background-image:
+      radial-gradient(480px 300px at 85% 0%, rgb(0 124 206 / 0.25), transparent 70%),
+      radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: auto, 22px 22px;
+    background-position: center, center;
+  }
+  .v2-hero--photo .v2-hero__bg::after {
+    display: none;
+  }
+  .v2-hero--photo .v2-hero__grid {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-9);
+  }
+  .v2-hero--photo .v2-hero__rule {
+    display: none;
+  }
+  .v2-hero--photo .v2-hero__visual {
+    display: block;
+  }
+}

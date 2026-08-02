@@ -1,0 +1,152 @@
+/* ============ VERSION 2 SKIN — "modern law firm × Stripe clean" ============
+   Alternative art direction applied on top of the shared components. Same fonts,
+   same palette, same copy — what changes: generous air, hairline borders, layered
+   soft shadows, pill CTAs, larger display type, navy headings, tinted bands.
+   Loaded last; scoped to body.v2 so versions 1 (index / variant-b) are untouched. */
+
+body.v2 {
+  /* corners: soft and confident */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-card: 16px;
+  --radius-control: 10px;
+
+  /* elevation: Stripe-style layered, cool-tinted */
+  --shadow-xs: 0 1px 2px rgb(6 24 44 / 0.05);
+  --shadow-sm: 0 1px 2px rgb(6 24 44 / 0.04), 0 4px 12px rgb(6 24 44 / 0.06);
+  --shadow-md: 0 2px 4px rgb(6 24 44 / 0.05), 0 12px 32px rgb(6 24 44 / 0.10);
+  --shadow-lg: 0 4px 8px rgb(6 24 44 / 0.05), 0 24px 64px rgb(6 24 44 / 0.14);
+  --shadow-accent: 0 8px 24px rgb(255 96 0 / 0.28);
+
+  /* rhythm: even more air */
+  --section-y: 128px;
+  --section-y-tight: 88px;
+  --card-pad: 32px;
+  --card-pad-lg: 40px;
+
+  /* type: display a step larger and tighter; headings go deep navy */
+  --text-display-1: clamp(40px, 4.6vw, 64px);
+  --text-display-2: clamp(32px, 3vw, 44px);
+  --tracking-display: -0.03em;
+  --leading-body: 1.7;
+  --text-heading: var(--blue-900);
+
+  /* surfaces & lines: tinted band, hairline keylines */
+  --surface-band: #f6f9fc;
+  --border-subtle: rgb(12 65 102 / 0.1);
+  --border-default: rgb(12 65 102 / 0.16);
+}
+
+/* pill CTAs */
+body.v2 .pr-btn {
+  border-radius: var(--radius-pill);
+}
+body.v2 .pr-btn--accent {
+  box-shadow: var(--shadow-accent);
+}
+
+/* trust bar: navy band becomes a quiet hairline strip on white */
+body.v2 .lp-trust.pr-inverse {
+  background: #fff;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-block: var(--space-8);
+}
+body.v2 .lp-trust__label {
+  color: var(--neutral-700);
+}
+body.v2 .lp-trust__item {
+  border-left-color: var(--border-subtle);
+}
+
+/* comparison table: hairline outline, softer featured shadow */
+body.v2 .lp-compare {
+  box-shadow: var(--shadow-md);
+}
+body.v2 .lp-compare__head {
+  background: #f6f9fc;
+}
+
+/* stats: hairline card, navy keyline slimmed */
+body.v2 .lp-stats__card {
+  border-top-width: 2px;
+}
+
+/* how-it-works: white cards float on the tinted band; the connector line hovered
+   awkwardly over the floating cards — the numbered markers carry the sequence alone */
+body.v2 .lp-how__timeline::before {
+  display: none;
+}
+body.v2 .lp-how__step {
+  box-shadow: var(--shadow-sm);
+  border-color: transparent;
+}
+body.v2 .lp-how__num {
+  border-color: var(--surface-band);
+}
+
+/* services: titles align to the TOP so headers read as one row; the reserved
+   two-line box still keeps the orange rules on a shared baseline */
+body.v2 .lp-services__title {
+  align-items: flex-start;
+}
+
+/* annotated photo placeholders — swapped for real photography later */
+.v2-ph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--blue-50);
+  border: 2px dashed var(--blue-300);
+  border-radius: var(--radius-xl);
+  color: var(--blue-700);
+  text-align: center;
+  padding: var(--space-6);
+}
+.v2-ph .ic {
+  width: 26px;
+  height: 26px;
+  opacity: 0.7;
+}
+.v2-ph__label {
+  font: var(--type-eyebrow);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+.v2-ph__desc {
+  font: var(--type-caption);
+  color: var(--text-muted);
+  max-width: 34ch;
+  margin: 0;
+}
+
+/* services / proof cards: hairline + float */
+body.v2 .lp-services__card,
+body.v2 .lp-proof__card,
+body.v2 .lp-why__viz,
+body.v2 .lp-stats__card {
+  border-color: var(--border-subtle);
+}
+body.v2 .lp-proof__chip {
+  border-color: var(--border-subtle);
+}
+
+/* quiz answers pick up the softer control radius */
+body.v2 .lp-quiz__answer {
+  border-radius: var(--radius-md);
+}
+
+/* footer: deep navy instead of charcoal for the law-firm close */
+body.v2 .lp-footer {
+  background: var(--blue-950);
+}
+
+/* header: airier */
+body.v2 .lp-header__inner {
+  min-height: 68px;
+}

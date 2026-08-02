@@ -1,0 +1,24 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Data — order table" subtitle="Bordered table with badges, sorting and a footer bar" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>body{padding:20px;background:var(--surface-subtle)}</style></head><body><div id="root"></div>
+<script>window.PR_ICON_BASE='../../assets/icons/';window.PR_ASSET_BASE='../../assets/';</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { DataTable, Badge, Button } = window.PriceReporterDesignSystem_2cd382;
+const rows=[
+ {id:1,po:'47QSWA-2261',agency:'Dept. of Veterans Affairs',sku:14,total:'$48,210.00',status:'Shipped',tone:'success'},
+ {id:2,po:'47QSWA-2260',agency:'U.S. Army Corps of Engineers',sku:3,total:'$7,940.50',status:'Processing',tone:'brand'},
+ {id:3,po:'47QSWA-2258',agency:'GSA Federal Acquisition Service',sku:41,total:'$132,004.00',status:'Action needed',tone:'warning'},
+ {id:4,po:'47QSWA-2255',agency:'Dept. of Homeland Security',sku:8,total:'$21,880.75',status:'Invoiced',tone:'neutral'}];
+ReactDOM.createRoot(document.getElementById('root')).render(
+<DataTable compact sortKey="po" onSort={()=>{}} columns={[
+ {key:'po',label:'PO number',strong:true,sortable:true},
+ {key:'agency',label:'Agency'},
+ {key:'sku',label:'Lines',align:'center'},
+ {key:'total',label:'Total',align:'right',sortable:true},
+ {key:'status',label:'Status',render:(r)=><Badge tone={r.tone}>{r.status}</Badge>}]}
+ rows={rows}
+ footer={<><span>4 of 32 orders</span><Button variant="link" iconRight="download">Export CSV</Button></>}/>);
+</script></body></html>

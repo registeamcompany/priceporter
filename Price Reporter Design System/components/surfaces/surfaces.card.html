@@ -1,0 +1,39 @@
+<!-- @dsCard group="Components" viewport="700x560" name="Surfaces — headings, tiles, stats, services, quote" subtitle="The homepage vocabulary: caps heading, hero tiles, orange numbers, service columns" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>body{padding:20px;background:#fff}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}.g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-bottom:20px}.band{background:var(--surface-band);padding:18px;margin-bottom:20px}</style></head><body><div id="root"></div>
+<script>window.PR_ICON_BASE='../../assets/icons/';window.PR_ASSET_BASE='../../assets/';</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { SectionHeading, BoxedHeading, NumbersBand, ServiceCard, ValueItem, LinkTile, Testimonial, Button } = window.PriceReporterDesignSystem_2cd382;
+ReactDOM.createRoot(document.getElementById('root')).render(<>
+<SectionHeading title="Price Reporter values"/>
+<div className="g3">
+<ValueItem title="Founded in 2006">A team of experts with many years of experience doing business with GSA.</ValueItem>
+<ValueItem title="Our Mission">is to serve client's unique needs to establish, grow and maximize their GSA business.</ValueItem>
+<ValueItem title="Our Experts">utilize a full range of custom market intelligence solutions.</ValueItem>
+</div>
+<div className="g3" style={{gridTemplateColumns:'1fr 1fr 1fr'}}>
+<LinkTile head video depth={1} label="Get GSA Contract"/>
+<LinkTile head video depth={2} label="Build Your Success with GSA"/>
+<LinkTile head video depth={3} label="Deploy Your GSA e-Commerce Suite"/>
+</div>
+<div className="g3" style={{gridTemplateColumns:'repeat(4,1fr)'}}>
+<LinkTile depth={1} label="What is GSA Contract"/>
+<LinkTile depth={1} icon="settings" label="Do You Qualify?"/>
+<LinkTile depth={2} label="Compliance Service"/>
+<LinkTile depth={3} label="e-Commerce Web Store"/>
+</div>
+<BoxedHeading title="Our numbers tell the story">
+<NumbersBand items={[{value:'20+',label:'Years Working with GSA'},{value:'400+',label:'GSA Contracts Awarded'},{value:'2.5M+',label:'GSA Orders Processed'},{value:'4.9',suffixIcon:'star',label:'Customer Rating'}]}/>
+</BoxedHeading>
+<div className="band" style={{marginTop:20}}>
+<div className="g2">
+<ServiceCard title="GSA Contract Acquisition" description="Price Reporter has been obtaining GSA contracts and opened doors to Government procurement for hundreds of businesses." cta="Learn more"/>
+<ServiceCard title="GSA Advantage Catalog Upload" description="Seamless catalog updates on GSA Advantage through efficient utilization of EDI technology." cta="Learn more"/>
+</div>
+</div>
+<Testimonial brand="Price Reporter" quote="are helping make my life much easier and helping me feel so much better about our GSA contract. Thanks!!!" name="Kristen Briggs" role="President" company="General Mailing & Shipping Systems, Inc." moreHref="#" onPrev={()=>{}} onNext={()=>{}}/>
+</>);
+</script></body></html>

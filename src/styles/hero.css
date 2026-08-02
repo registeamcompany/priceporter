@@ -1,0 +1,163 @@
+/* BLOCK 1 — HERO. Desktop: 60/40 copy + raised form card, faded Capitol photo right.
+   Mobile: eyebrow → H1 → sub → full-width CTA → click-to-call; form revealed by the CTA. */
+.lp-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-hero);
+  padding-bottom: var(--space-10);
+}
+/* Faded Capitol photo. The photo lives in its own right-side box and the mask fades
+   relative to THAT box, so alpha is guaranteed to hit zero before the image's own
+   left edge — no visible seam. Multiply blend melts the near-white photo into the wash. */
+.lp-hero__photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 52%;
+  background-image: url("/assets/hero-capitol.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: cover;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.lp-hero__container {
+  position: relative;
+  z-index: 1;
+}
+.lp-hero__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-block: var(--space-5);
+}
+.lp-hero__topbar img {
+  display: block;
+}
+.lp-hero__topphone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 16px;
+  color: var(--blue-900);
+  white-space: nowrap;
+}
+.lp-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: var(--space-10);
+  align-items: start;
+  padding-top: var(--space-8);
+}
+.lp-hero__eyebrow {
+  font: var(--type-eyebrow);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin: 0 0 var(--space-4);
+}
+.lp-hero__title {
+  font: var(--type-display-1);
+  letter-spacing: var(--tracking-display);
+  color: var(--text-strong);
+  margin: 0 0 var(--space-5);
+  max-width: 20ch;
+  text-wrap: balance;
+}
+/* the site's signature 5px black rule under the hero headline */
+.lp-hero__rule {
+  display: block;
+  width: 96px;
+  height: 5px;
+  background: var(--neutral-900);
+  margin: 0 0 var(--space-6);
+}
+.lp-hero__sub {
+  font: var(--type-lead);
+  color: var(--text-body-color);
+  margin: 0 0 var(--space-6);
+  max-width: 54ch;
+}
+.lp-hero__mobile-cta {
+  display: none;
+}
+.lp-hero__micro {
+  font: var(--type-caption);
+  color: var(--text-muted);
+  margin: var(--space-3) 0 0;
+  text-align: center;
+}
+.lp-hero__call {
+  font: var(--type-body);
+  color: var(--text-strong);
+  margin: 0 0 var(--space-5);
+}
+.lp-hero__call a {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+}
+.lp-hero__badge {
+  align-self: flex-start;
+}
+
+/* Raised form card — reads as a separate object over the wash */
+.lp-hero__formwrap {
+  background: #fff;
+  border: 1px solid var(--neutral-150);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--card-pad-lg);
+}
+
+@media (max-width: 1023px) {
+  .lp-hero {
+    padding-bottom: var(--space-8);
+  }
+  /* No background photo on mobile — plain light wash only */
+  .lp-hero__photo {
+    display: none;
+  }
+  .lp-hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    padding-top: var(--space-4);
+  }
+  .lp-hero__title {
+    max-width: none;
+  }
+  .lp-hero__sub {
+    font-size: var(--text-body);
+    margin-bottom: var(--space-5);
+  }
+  .lp-hero__mobile-cta {
+    display: block;
+    margin-bottom: var(--space-5);
+  }
+  .lp-hero__call {
+    text-align: center;
+    margin-bottom: var(--space-4);
+  }
+  .lp-hero__rule {
+    display: none;
+  }
+  /* the mobile CTA already carried the offer + microcopy — don't repeat it
+     inside the revealed form */
+  .lp-hero__formwrap .lp-form__head {
+    display: none;
+  }
+  /* Form hidden until the CTA opens it */
+  .lp-hero__formwrap {
+    display: none;
+    padding: var(--card-pad);
+  }
+  .lp-hero__formwrap.is-open {
+    display: block;
+  }
+}

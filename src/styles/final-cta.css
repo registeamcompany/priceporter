@@ -1,0 +1,62 @@
+/* BLOCK 12 — FINAL CTA. Deepest navy band, centered head, one horizontal form row on
+   desktop, vertical stack + big click-to-call on mobile. */
+.lp-final {
+  background: var(--blue-950);
+}
+.lp-final__form {
+  max-width: 1080px;
+  margin-inline: auto;
+}
+.lp-final {
+  /* subtle dot grid gives the darkest band some depth */
+  background-image: radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.lp-final__row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+  align-items: stretch;
+}
+.lp-final__submit {
+  margin-top: var(--space-2);
+}
+.lp-final__contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: var(--space-6) 0 0;
+  font: var(--type-body);
+  color: var(--text-on-dark-muted);
+}
+.lp-final__contacts .ic {
+  color: var(--brand-accent);
+}
+.lp-final__contacts a {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  color: #fff;
+}
+.lp-final .lp-form__success h3,
+.lp-final .lp-form__success p {
+  color: #fff;
+}
+.lp-final .lp-form__success p {
+  color: var(--text-on-dark-muted);
+}
+
+@media (max-width: 1023px) {
+  .lp-final__row {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+  .lp-final__submit {
+    width: 100%;
+    white-space: normal;
+  }
+  .lp-final__contacts {
+    font-size: var(--text-body-sm);
+  }
+}
