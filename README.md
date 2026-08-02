@@ -7,11 +7,16 @@ architecture rules.
 
 ## Versions & variants
 
-Three pages ship from one codebase (multi-page Vite build):
+**APPROVED MAIN: `/index.html`** — Variant B.2 copy (final deck) in the v2 art
+direction with the full-bleed Capitol photo hero. Entry `src/main-v2b.js`.
+A ready-to-deploy build of all pages lives in `release/landing-dist.zip` —
+unzip onto any static hosting; `index.html` is the approved page.
+
+Other pages ship from the same codebase (multi-page Vite build), all `noindex`:
 
 **Version 1** — the original art direction (flat refresh theme):
 
-- **Variant A — risk-led** (`/index.html`, entry `src/main.js`): problem → comparison
+- **Variant A — risk-led** (`/v1.html`, entry `src/main.js`): problem → comparison
   table → process → quiz. Hypothesis: wins on returning / retargeting visitors.
 - **Variant B — desire-led** (`/variant-b.html`, entry `src/main-b.js`): prize
   ($52B / $2.3M) → process → reassurance band → proof → "Win it / Run it / Grow it".
@@ -26,13 +31,15 @@ testimonials, and a navy gradient stats panel. Implemented as a token-level skin
 `src/components/v2/`:
 
 - `/v2.html` (entry `src/main-v2.js`) — Variant A copy in the v2 design.
-- `/v2-b.html` (entry `src/main-v2b.js`) — Variant B copy in the v2 design: B hero,
-  Prize block on the dark stats panel, reassurance band, cases, Win it / Run it /
-  Grow it. Reuses `src/components/b/` where the layout doesn't change.
+- `/v2-b.html` (entry `src/main-v2b.js`) — same as the approved `/index.html`
+  (kept for preview-link continuity): Variant B.2 copy — proof line in the photo
+  hero, real site counters, five steps, repeat-client case, criteria-based quiz,
+  the B.2 FAQ. B2 components live in `src/components/v2/`.
 
 Shared between all pages: styles, scripts, design system, Header/Footer/StickyBar
 and the FAQ component. Copy-bearing blocks for B live in `src/components/b/`.
-`variant-b.html`, `v2.html` and `v2-b.html` carry `noindex` until testing is wired up. Testing
+`v1.html`, `variant-b.html`, `v2.html` and `v2-b.html` carry `noindex`; only the
+approved `index.html` is indexable. Testing
 note from the copy deck: run 50/50 on top transactional ad groups for 3–4 weeks,
 primary metric CPA, secondary CR and scroll depth on the reassurance band.
 
