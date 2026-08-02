@@ -17,18 +17,22 @@ Three pages ship from one codebase (multi-page Vite build):
   ($52B / $2.3M) → process → reassurance band → proof → "Win it / Run it / Grow it".
   Objections live only in the FAQ. Hypothesis: wins on cold first-touch ad traffic.
 
-**Version 2** — alternative art direction, same copy as Variant A
-(`/v2.html`, entry `src/main-v2.js`, body class `v2`): "modern law firm × Stripe
-clean". Skewed gradient underlays in the hero, duotone federal-architecture
-photography, hairline borders, layered soft shadows, pill CTAs, larger display type,
-navy headings, tinted bands. Implemented as a token-level skin
-(`src/styles/v2/v2.css`) over the shared blocks plus three photo-led components in
-`src/components/v2/` (hero, problem, team). Photos in `public/assets/stock/` are
-Unsplash placeholders — swap for brand-approved shots.
+**Version 2** — alternative art direction: "modern law firm × Stripe clean".
+Skewed gradient underlays in the hero, annotated photo placeholders (dashed panels
+that say which photo goes where), hairline borders, layered soft shadows, pill CTAs,
+larger display type, navy headings, tinted bands, case cards instead of plain
+testimonials, and a navy gradient stats panel. Implemented as a token-level skin
+(`src/styles/v2/v2.css`) over the shared blocks plus v2 components in
+`src/components/v2/`:
+
+- `/v2.html` (entry `src/main-v2.js`) — Variant A copy in the v2 design.
+- `/v2-b.html` (entry `src/main-v2b.js`) — Variant B copy in the v2 design: B hero,
+  Prize block on the dark stats panel, reassurance band, cases, Win it / Run it /
+  Grow it. Reuses `src/components/b/` where the layout doesn't change.
 
 Shared between all pages: styles, scripts, design system, Header/Footer/StickyBar
 and the FAQ component. Copy-bearing blocks for B live in `src/components/b/`.
-`variant-b.html` and `v2.html` carry `noindex` until testing is wired up. Testing
+`variant-b.html`, `v2.html` and `v2-b.html` carry `noindex` until testing is wired up. Testing
 note from the copy deck: run 50/50 on top transactional ad groups for 3–4 weeks,
 primary metric CPA, secondary CR and scroll depth on the reassurance band.
 
