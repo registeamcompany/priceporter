@@ -150,3 +150,17 @@ body.v2 .lp-footer {
 body.v2 .lp-header__inner {
   min-height: 68px;
 }
+
+/* Mobile rhythm: the 104px desktop air reads as holes on a phone; cards and
+   section heads tighten in step so nothing floats in empty space */
+@media (max-width: 767px) {
+  body.v2 {
+    --section-y: 64px;
+    --section-y-tight: 48px;
+    --card-pad: 20px;
+    --card-pad-lg: 28px;
+  }
+  body.v2 .pr-sectionhead {
+    margin-bottom: var(--space-7);
+  }
+}

@@ -117,16 +117,19 @@
 }
 
 @media (max-width: 1023px) {
-  /* mobile stays fast and clean: solid navy, no photo download */
+  /* mobile keeps the Capitol: dome silhouette reads at the top right, the scrim
+     deepens downward so white copy and the form stay fully readable */
   .v2-hero--photo .v2-hero__bg {
     background-image:
-      radial-gradient(480px 300px at 85% 0%, rgb(0 124 206 / 0.25), transparent 70%),
-      radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
-    background-size: auto, 22px 22px;
-    background-position: center, center;
-  }
-  .v2-hero--photo .v2-hero__bg::after {
-    display: none;
+      linear-gradient(180deg,
+        rgb(6 24 44 / 0.45) 0%,
+        rgb(6 24 44 / 0.7) 32%,
+        rgb(6 30 52 / 0.92) 60%,
+        rgb(6 24 44 / 0.97) 100%),
+      url("/assets/hero-capitol-full.jpg");
+    background-size: auto, cover;
+    /* 40% x lands the dome silhouette on the right edge beside the copy */
+    background-position: center, 40% 4%;
   }
   .v2-hero--photo .v2-hero__grid {
     padding-top: var(--space-5);

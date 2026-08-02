@@ -111,28 +111,50 @@
 }
 
 @media (max-width: 1023px) {
-  /* Vertical timeline: rail on the left, big numbers guide the eye */
+  /* Compact stacked cards: number + icon + title share one row, text runs
+     full-width beneath — no rail, no floating glyphs over empty space */
   .lp-how__timeline {
     grid-template-columns: 1fr;
-    gap: var(--space-5);
-    padding-left: 26px;
+    gap: var(--space-4);
+    padding-left: 0;
   }
   .lp-how__timeline::before {
-    top: 20px;
-    bottom: 40px;
-    left: 21px;
-    right: auto;
-    width: 2px;
-    height: auto;
-    background: linear-gradient(to bottom, var(--blue-300), var(--blue-500) 55%, var(--brand-accent));
+    display: none;
   }
-  .lp-how__step {
+  .lp-how__step,
+  .lp-how__timeline--five .lp-how__step {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    column-gap: var(--space-3);
+    row-gap: var(--space-3);
     margin-top: 0;
-    padding-top: var(--card-pad);
+    padding: var(--space-5);
   }
   .lp-how__marker {
-    top: var(--space-5);
-    left: -48px;
+    position: static;
+  }
+  .lp-how__num {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+    border-width: 2px;
+  }
+  .lp-how__icon,
+  .lp-how__timeline--five .lp-how__icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0;
+  }
+  .lp-how__icon .ic {
+    width: 18px;
+    height: 18px;
+  }
+  .lp-how__title {
+    margin: 0;
+  }
+  .lp-how__text {
+    grid-column: 1 / -1;
   }
   .lp-how__cta {
     margin-top: var(--space-7);

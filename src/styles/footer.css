@@ -125,8 +125,21 @@
   }
 }
 @media (max-width: 599px) {
+  .lp-footer {
+    padding-top: var(--space-9);
+  }
   .lp-footer__grid {
     grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+  .lp-footer__head {
+    margin-bottom: var(--space-4);
+  }
+  .lp-footer__list {
+    gap: var(--space-3);
+  }
+  .lp-footer__bottom {
+    margin-top: var(--space-7);
   }
 }
 @media (min-width: 1024px) {
