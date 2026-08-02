@@ -13,7 +13,9 @@
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
   padding-bottom: calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
-  background: rgb(12 65 102 / 0.97);
+  background: rgb(255 255 255 / 0.96);
+  border-top: 1px solid var(--border-subtle);
+  box-shadow: 0 -4px 16px rgb(6 24 44 / 0.08);
   backdrop-filter: var(--overlay-blur);
   -webkit-backdrop-filter: var(--overlay-blur);
   transform: translateY(110%);
@@ -28,6 +30,10 @@
   min-width: 0;
   padding-inline: var(--space-3);
   font-size: 12px;
+}
+/* light bar: the transparent-on-navy call button gets a white fill */
+.lp-sticky .lp-sticky__call {
+  background: #fff;
 }
 
 @media (max-width: 1023px) {
