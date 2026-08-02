@@ -1,64 +1,136 @@
-/* Footer trust line — charcoal utility band, one quiet row. */
+/* Footer — recreation of the pricereporter.com site footer: navy band, four
+   columns (Services / Information / Resources / Contact), BBB accreditation,
+   centered reCAPTCHA notice. */
 .lp-footer {
-  background: var(--surface-utility);
-  color: rgb(255 255 255 / 0.75);
-  padding-block: var(--space-7);
+  padding-top: var(--space-11);
+  padding-bottom: var(--space-6);
   /* keep clear of the mobile sticky bar */
-  padding-bottom: calc(var(--space-7) + 72px);
+  padding-bottom: calc(var(--space-6) + 72px);
 }
-.lp-footer__inner {
+.lp-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+}
+.lp-footer__head {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 var(--space-5);
+}
+.lp-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  align-items: center;
-  gap: var(--space-6);
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--space-4);
+  font: var(--type-body);
+  font-size: var(--text-body-sm);
 }
-.lp-footer__brand {
+.lp-footer__list a {
+  color: #fff;
+  text-decoration: none;
+}
+.lp-footer__list a:hover {
+  color: var(--brand-accent);
+}
+.lp-footer__list--contact li {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-.lp-footer__word {
-  font-family: var(--font-body);
-  font-weight: var(--weight-medium);
-  font-size: 15px;
-  letter-spacing: var(--tracking-logo);
   color: #fff;
 }
-.lp-footer__word b {
-  font-weight: var(--weight-medium);
-  color: var(--blue-300);
+.lp-footer__list--contact .ic {
+  flex: none;
+  color: var(--text-on-dark-muted);
 }
-.lp-footer__trust {
-  flex: 1;
-  font: var(--type-caption);
-  color: rgb(255 255 255 / 0.7);
-  margin: 0;
-  min-width: 260px;
-}
-.lp-footer__meta {
+
+/* BBB accreditation plate — text recreation; swap for the official seal asset
+   from BBB when provided */
+.lp-footer__bbb {
   display: flex;
-  gap: var(--space-5);
-  font: var(--type-caption);
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+  text-decoration: none;
 }
-.lp-footer__meta a {
+.lp-footer__bbb-seal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  color: #1a1a1a;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+}
+.lp-footer__bbb-mark {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.lp-footer__bbb-text {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 10.5px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.lp-footer__bbb-rating {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
   color: #fff;
 }
-.lp-footer__meta a:hover {
+.lp-footer__bbb-rating b {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 13px;
+  color: #fff;
+}
+.lp-footer__bbb-rating span {
+  font: var(--type-caption);
+  font-size: 11px;
+  color: var(--text-on-dark-muted);
+}
+.lp-footer__bbb:hover .lp-footer__bbb-rating b {
   color: var(--brand-accent);
 }
 
-@media (min-width: 1024px) {
-  .lp-footer {
-    padding-bottom: var(--space-7);
+.lp-footer__copy {
+  font: var(--type-body);
+  font-size: var(--text-body-sm);
+  color: #fff;
+  margin: var(--space-7) 0 0;
+}
+.lp-footer__bottom {
+  text-align: center;
+  margin-top: var(--space-9);
+  font: var(--type-caption);
+  color: var(--text-on-dark-muted);
+}
+
+@media (max-width: 1023px) {
+  .lp-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7) var(--space-6);
+  }
+  .lp-footer__head {
+    font-size: 17px;
   }
 }
-@media (max-width: 1023px) {
-  .lp-footer__inner {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--space-4);
+@media (max-width: 599px) {
+  .lp-footer__grid {
+    grid-template-columns: 1fr;
   }
-  .lp-footer__trust {
-    min-width: 0;
+}
+@media (min-width: 1024px) {
+  .lp-footer {
+    padding-bottom: var(--space-6);
   }
 }
