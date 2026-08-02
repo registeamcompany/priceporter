@@ -188,7 +188,7 @@
   color: #ffffff;
 }
 
-/* Slot 4: Body (Height: ~70px, 3 lines clamp) */
+/* Slot 4: Body — full client copy, never clipped; flex-grow keeps card footers aligned */
 .v2-case__body {
   font-family: var(--font-body);
   font-size: 14.5px;
@@ -197,10 +197,6 @@
   margin: 0 0 20px 0;
   flex-grow: 1;
   min-height: 70px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .v2-case--cta .v2-case__body {

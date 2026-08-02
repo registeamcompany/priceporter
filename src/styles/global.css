@@ -36,6 +36,12 @@ body {
 .pr-sectionhead {
   margin-bottom: var(--space-9);
 }
+/* Centered section subs read poorly with a long first line and a short orphan
+   second line — balance evens the rag (headings get this from the DS base). */
+.pr-sectionhead__sub,
+.lp-reassure__text {
+  text-wrap: balance;
+}
 
 /* Inline SVG icon sizing (Lucide markup, inherits currentColor) */
 .ic {

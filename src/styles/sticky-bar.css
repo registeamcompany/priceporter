@@ -7,7 +7,9 @@
   bottom: 0;
   z-index: 55;
   display: none;
-  grid-template-columns: 1fr 1fr;
+  /* minmax(0, …) lets the tracks shrink below the buttons' nowrap min-content,
+     otherwise the fixed bar grows past the viewport and drags the page wider */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
   padding-bottom: calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
@@ -23,6 +25,9 @@
 .lp-sticky__call,
 .lp-sticky__cta {
   width: 100%;
+  min-width: 0;
+  padding-inline: var(--space-3);
+  font-size: 12px;
 }
 
 @media (max-width: 1023px) {

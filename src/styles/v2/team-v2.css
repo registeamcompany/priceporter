@@ -100,8 +100,16 @@
 
 @media (max-width: 1023px) {
   .v2-team__grid {
-    grid-template-columns: 1fr;
+    /* minmax(0, …) so the nowrap video button cannot widen the column past the viewport */
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-6);
+  }
+  .v2-team__video {
+    white-space: normal;
+    height: auto;
+    min-height: var(--control-h);
+    padding-block: 10px;
+    text-align: center;
   }
   .v2-team__photo {
     order: -1;
