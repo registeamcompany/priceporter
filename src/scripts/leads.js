@@ -9,8 +9,8 @@
 // While the URL is empty, submissions still show the success state and still fire
 // the dataLayer event — only sheet delivery is skipped.
 
-// TODO: paste the deployed Apps Script Web App URL (see docs/DEPLOY_ANALYTICS.md)
-const LEAD_ENDPOINT = '';
+const LEAD_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbzc9a68pGpDi-NAHdMDsNDiR-AleCLSZs1c1qGpDmwq2iX2tKkMUvXabk9a_zUxkJ-6/exec';
 
 // Ad-attribution params captured on landing and kept for the session, so a lead
 // submitted after scrolling/quizzing still carries the click's UTM tag.
