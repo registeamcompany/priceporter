@@ -76,13 +76,22 @@ fire-and-forget) на Apps Script Web App. Поки константа `LEAD_END
 | utm-tag | UTM/click-id параметри з URL приземлення (`utm_*`, gclid, msclkid, fbclid), зберігаються на сесію |
 | решта (hello, Message, your-*, Position, Business Name, Website, GSA/VA #, Category, Checked Manufacturers, Subject, pdf-link) | порожні — це поля форм основного сайту |
 
+### Безпека існуючого потоку лідів
+
+Скрипт робить тільки `appendRow` (дописує рядки знизу): шапку, існуючі рядки,
+форматування і те, як у таблицю пишуть інші джерела (CF7-конектор тощо), він не
+чіпає. Щоб гарантовано не зачепити скрипти, які вже можуть бути прив'язані до
+таблиці, робимо **standalone-скрипт** (НЕ через Extensions → Apps Script у самій
+таблиці) — він живе окремо і відкриває таблицю за ID.
+
 ### Кроки (~10 хв, потрібен доступ на редагування таблиці)
 
-1. Відкрити **саме цю таблицю** → Extensions → Apps Script, вставити:
+1. Взяти ID таблиці з її URL: `docs.google.com/spreadsheets/d/<SHEET_ID>/edit`.
+2. Зайти на **script.google.com** → New project, вставити:
 
 ```js
-// Лист, куди падають ліди (перший лист таблиці; за потреби вкажіть назву явно)
-const SHEET = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+const SHEET_ID = '<SHEET_ID з URL таблиці>';
+const SHEET = SpreadsheetApp.openById(SHEET_ID).getSheets()[0]; // перший лист
 const NOTIFY_EMAIL = ''; // опційно: 'salesteam@pricereporter.com'
 
 function doPost(e) {
@@ -119,10 +128,14 @@ function doPost(e) {
 }
 ```
 
-2. Deploy → New deployment → тип **Web app**: Execute as **Me**, Who has access —
+3. Deploy → New deployment → тип **Web app**: Execute as **Me**, Who has access —
    **Anyone**. Скопіювати URL виду `https://script.google.com/macros/s/…/exec`.
-3. Вставити URL у `LEAD_ENDPOINT` (`src/scripts/leads.js`), `npm run build`,
+   (При першому деплої Google попросить дозвіл на доступ скрипта до таблиці —
+   це нормально.)
+4. Вставити URL у `LEAD_ENDPOINT` (`src/scripts/leads.js`), `npm run build`,
    перезалити, purge CF.
+5. Тест: відправити тестовий лід з лендінгу → у таблиці знизу з'явиться рядок
+   з `Form = consulting-…`; існуючі ліди й механізм основного сайту не змінюються.
 
 **Про колонку IP:** Google Apps Script принципово не віддає IP того, хто зробив
 запит (запити приходять через проксі Google). Якщо IP критичний — варіант:
