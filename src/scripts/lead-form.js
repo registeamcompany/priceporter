@@ -1,5 +1,6 @@
 // One CTA action for the whole page: every [data-scroll-form] control leads to the
 // nearest sensible lead form. On mobile the hero form is collapsed — the CTA opens it.
+import { sendLead, trackFormSubmit } from './leads.js';
 
 function scrollToHeroForm() {
   const wrap = document.getElementById('lead-form-anchor');
@@ -28,10 +29,12 @@ function initLeadForms() {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!form.reportValidity()) return;
-      // No backend wired yet: swap to the success state, keep the payload in console
-      // so CRM integration has a clear seam.
       const data = Object.fromEntries(new FormData(form).entries());
-      console.info('[lead-form] submission', data);
+      const formId = form.closest('#lead-form-anchor')
+        ? 'consulting-hero-form'
+        : 'consulting-final-cta-form';
+      sendLead(formId, data);
+      trackFormSubmit(formId);
       const fields = form.querySelector('.lp-form__fields');
       const success = form.querySelector('.lp-form__success');
       if (fields) fields.hidden = true;

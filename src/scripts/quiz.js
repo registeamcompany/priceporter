@@ -1,5 +1,6 @@
 // BLOCK 5 — quiz: 4 questions shown one at a time, progress bar, contact step,
 // result screen. Answers land in console with the contact payload (CRM seam).
+import { sendLead, trackFormSubmit } from './leads.js';
 
 export function initQuiz() {
   const root = document.querySelector('[data-quiz]');
@@ -52,7 +53,8 @@ export function initQuiz() {
     e.preventDefault();
     if (!contactForm.reportValidity()) return;
     const contact = Object.fromEntries(new FormData(contactForm).entries());
-    console.info('[quiz] submission', { answers, contact });
+    sendLead('consulting-quiz', { ...contact, answers: answers.join(' | ') });
+    trackFormSubmit('consulting-quiz');
     show('result');
   });
 
