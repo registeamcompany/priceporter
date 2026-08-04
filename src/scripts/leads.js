@@ -12,6 +12,22 @@
 // TODO: paste the deployed Apps Script Web App URL (see docs/DEPLOY_ANALYTICS.md)
 const LEAD_ENDPOINT = '';
 
+// Ad-attribution params captured on landing and kept for the session, so a lead
+// submitted after scrolling/quizzing still carries the click's UTM tag.
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'msclkid', 'fbclid'];
+function currentUtm() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const found = UTM_KEYS.filter((k) => params.has(k))
+      .map((k) => `${k}=${params.get(k)}`)
+      .join('&');
+    if (found) sessionStorage.setItem('pr_utm', found);
+    return sessionStorage.getItem('pr_utm') || '';
+  } catch {
+    return '';
+  }
+}
+
 export function trackFormSubmit(formId) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
@@ -26,6 +42,7 @@ export function sendLead(formId, fields) {
     formId,
     ...fields,
     page: window.location.href,
+    utm: currentUtm(),
     submittedAt: new Date().toISOString(),
   };
   console.info('[lead]', payload);

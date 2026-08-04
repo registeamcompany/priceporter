@@ -54,44 +54,81 @@ fire-and-forget) на Apps Script Web App. Поки константа `LEAD_END
 
 ---
 
-## 3. Google Sheets для лідів (робиться з нуля — на основному сайті інтеграції немає)
+## 3. Google Sheets для лідів — ІСНУЮЧА таблиця клієнта
 
-1. Створити Google Таблицю з листом `Leads` і шапкою:
-   `submittedAt | formId | name | company | email | phone | answers | page`
-2. Extensions → Apps Script, вставити:
+Ліди падають у вже існуючу таблицю клієнта з 25 колонками:
+
+`Timestamp | Form | Page URL | IP | Name | Company | Email | Phone | GSA/VA Contract # | Note | hello | Message | your-company | your-phone | Position | Business Name | Website | Have you been in business for at least 2 years? | Have you generated over $100k in revenue in each of the last 2 consecutive years? | What category of products/services do you sell? | Do you offer products or services? | Checked Manufacturers | utm-tag | Subject | pdf-link`
+
+### Мапінг наших форм на колонки
+
+| Колонка таблиці | Звідки береться |
+|---|---|
+| Timestamp | `submittedAt` (ISO, момент сабміту) |
+| Form | `formId`: `consulting-hero-form` / `consulting-final-cta-form` / `consulting-quiz` |
+| Page URL | `page` |
+| IP | — (Apps Script не бачить IP відправника; див. примітку нижче) |
+| Name / Company / Email / Phone | однойменні поля форм |
+| Note | для квіза: `U.S.-made / TAA-compliant: <відповідь Q4>` |
+| Have you been in business…? | квіз Q1 «How long has your company been in business?» |
+| Have you generated over $100k…? | квіз Q2 «Is your annual revenue above $100K?» |
+| Do you offer products or services? | квіз Q3 «What do you sell?» |
+| utm-tag | UTM/click-id параметри з URL приземлення (`utm_*`, gclid, msclkid, fbclid), зберігаються на сесію |
+| решта (hello, Message, your-*, Position, Business Name, Website, GSA/VA #, Category, Checked Manufacturers, Subject, pdf-link) | порожні — це поля форм основного сайту |
+
+### Кроки (~10 хв, потрібен доступ на редагування таблиці)
+
+1. Відкрити **саме цю таблицю** → Extensions → Apps Script, вставити:
 
 ```js
-const SHEET_NAME = 'Leads';
+// Лист, куди падають ліди (перший лист таблиці; за потреби вкажіть назву явно)
+const SHEET = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
 const NOTIFY_EMAIL = ''; // опційно: 'salesteam@pricereporter.com'
 
 function doPost(e) {
-  const data = JSON.parse(e.postData.contents);
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
-  sheet.appendRow([
-    data.submittedAt || new Date().toISOString(),
-    data.formId || '',
-    data.name || '',
-    data.company || '',
-    data.email || '',
-    data.phone || '',
-    data.answers || '',
-    data.page || '',
+  const d = JSON.parse(e.postData.contents);
+  SHEET.appendRow([
+    d.submittedAt || new Date().toISOString(), // Timestamp
+    d.formId || '',                            // Form
+    d.page || '',                              // Page URL
+    '',                                        // IP (недоступний з Apps Script)
+    d.name || '',                              // Name
+    d.company || '',                           // Company
+    d.email || '',                             // Email
+    d.phone || '',                             // Phone
+    '',                                        // GSA/VA Contract #
+    d.note || '',                              // Note (квіз: TAA-відповідь)
+    '', '', '', '', '', '', '',                // hello…Website (поля основного сайту)
+    d.inBusiness || '',                        // Have you been in business ≥2 years?
+    d.revenue || '',                           // Have you generated over $100k…?
+    '',                                        // What category…? (у квізі немає)
+    d.productsOrServices || '',                // Do you offer products or services?
+    '',                                        // Checked Manufacturers
+    d.utm || '',                               // utm-tag
+    '',                                        // Subject
+    '',                                        // pdf-link
   ]);
   if (NOTIFY_EMAIL) {
     MailApp.sendEmail(
       NOTIFY_EMAIL,
-      'New lead: ' + (data.formId || 'consulting landing'),
-      Object.entries(data).map(([k, v]) => k + ': ' + v).join('\n')
+      'New lead: ' + (d.formId || 'consulting landing'),
+      Object.entries(d).map(([k, v]) => k + ': ' + v).join('\n')
     );
   }
   return ContentService.createTextOutput('ok');
 }
 ```
 
-3. Deploy → New deployment → тип **Web app**: Execute as **Me**, Who has access —
+2. Deploy → New deployment → тип **Web app**: Execute as **Me**, Who has access —
    **Anyone**. Скопіювати URL виду `https://script.google.com/macros/s/…/exec`.
-4. Вставити URL у `LEAD_ENDPOINT` (`src/scripts/leads.js`), `npm run build`,
+3. Вставити URL у `LEAD_ENDPOINT` (`src/scripts/leads.js`), `npm run build`,
    перезалити, purge CF.
+
+**Про колонку IP:** Google Apps Script принципово не віддає IP того, хто зробив
+запит (запити приходять через проксі Google). Якщо IP критичний — варіант:
+на лендінгу перед відправкою робити запит до зовнішнього сервісу (наприклад,
+`api.ipify.org`) і слати IP у payload. Це +1 сторонній запит на сторінці —
+впроваджуємо тільки якщо клієнт підтвердить, що IP справді потрібен.
 
 ---
 

@@ -53,7 +53,14 @@ export function initQuiz() {
     e.preventDefault();
     if (!contactForm.reportValidity()) return;
     const contact = Object.fromEntries(new FormData(contactForm).entries());
-    sendLead('consulting-quiz', { ...contact, answers: answers.join(' | ') });
+    // named keys map 1:1 onto the client lead sheet's question columns
+    sendLead('consulting-quiz', {
+      ...contact,
+      inBusiness: answers[0] || '',
+      revenue: answers[1] || '',
+      productsOrServices: answers[2] || '',
+      note: answers[3] ? `U.S.-made / TAA-compliant: ${answers[3]}` : '',
+    });
     trackFormSubmit('consulting-quiz');
     show('result');
   });
