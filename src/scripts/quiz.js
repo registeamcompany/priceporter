@@ -11,6 +11,11 @@ export function initQuiz() {
   const progressWrap = root.querySelector('[data-quiz-progress-wrap]');
   const backBtn = root.querySelector('[data-quiz-back]');
   const contactForm = root.querySelector('[data-quiz-contact]');
+  // question count is derived from the markup, so 4-question (GSA) and
+  // 5-question (VA) quizzes share this module
+  const total = steps.filter(
+    (s) => s.dataset.quizStep !== 'result' && !s.hasAttribute('data-quiz-contact')
+  ).length;
 
   const answers = [];
   let current = 0;
@@ -20,11 +25,11 @@ export function initQuiz() {
       s.hidden = s.dataset.quizStep !== String(stepKey);
     });
     const idx = typeof stepKey === 'number' ? stepKey : null;
-    if (idx !== null && idx <= 3) {
-      progressLabel.textContent = `Question ${idx + 1} of 4`;
-      progressFill.style.width = `${((idx + 1) / 4) * 100}%`;
+    if (idx !== null && idx < total) {
+      progressLabel.textContent = `Question ${idx + 1} of ${total}`;
+      progressFill.style.width = `${((idx + 1) / total) * 100}%`;
       progressWrap.hidden = false;
-    } else if (stepKey === 4) {
+    } else if (stepKey === total) {
       progressLabel.textContent = 'Last step';
       progressFill.style.width = '100%';
       progressWrap.hidden = false;

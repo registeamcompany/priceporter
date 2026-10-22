@@ -19,11 +19,18 @@ Direct-response лендінг для платного трафіку Google Ads
 
 | Сторінка | Entry | Дизайн | Тексти | Статус |
 |---|---|---|---|---|
-| `/index.html` | `src/main-v2b.js` | v2 + фото-hero | B.2 | **ЗАТВЕРДЖЕНА** |
+| `/index.html` | `src/main-v2b.js` | v2 + фото-hero | B.2 (GSA) | **ЗАТВЕРДЖЕНА** |
+| `/va.html` | `src/main-va.js` | v2 + фото-hero (склад) | VA FSS дек | бойова для VA-трафіку |
 | `/v2-b.html` | `src/main-v2b.js` | v2 + фото-hero | B.2 | дубль index (для старих прев'ю-лінків) |
 | `/v2.html` | `src/main-v2.js` | v2 | Variant A | архів |
 | `/v1.html` | `src/main.js` | v1 (flat refresh) | Variant A | архів, заморожена |
 | `/variant-b.html` | `src/main-b.js` | v1 (flat refresh) | Variant B | архів, заморожена |
+
+VA-сторінка: всі компоненти в `src/components/va/`, стилі в
+`src/styles/va/va.css`, hero-фото `public/assets/hero-va.jpg`
+(модифікатор `.v2-hero--va`). Квіз на 5 питань — `scripts/quiz.js` сам
+визначає кількість питань з розмітки. Роутер «9 Schedules» веде немедичний
+трафік на GSA-лендінг (`/`).
 
 Правило: **зміни вносяться в затверджену сторінку**. Сторінки v1 не чіпаємо
 (вони заморожені рішенням клієнта). Якщо блок спільний між сторінками — див.

@@ -11,6 +11,7 @@ export default defineConfig({
         'variant-b': resolve(__dirname, 'variant-b.html'),
         v2: resolve(__dirname, 'v2.html'),
         'v2-b': resolve(__dirname, 'v2-b.html'),
+        va: resolve(__dirname, 'va.html'),
       },
     },
   },

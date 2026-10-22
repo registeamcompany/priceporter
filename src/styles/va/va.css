@@ -1,0 +1,319 @@
+/* VA landing — page-specific styles on top of the shared v2 skin.
+   New blocks: schedules router, results cards, veteran voices panel,
+   OIG infographic, video panel; plus the VA hero photo and 5-col trust bar. */
+
+/* hero: medical-supply warehouse photo instead of the Capitol */
+.v2-hero--photo.v2-hero--va .v2-hero__bg {
+  background-image:
+    linear-gradient(92deg,
+      rgb(6 24 44 / 0.94) 0%,
+      rgb(6 24 44 / 0.82) 34%,
+      rgb(8 40 66 / 0.55) 64%,
+      rgb(8 40 66 / 0.4) 100%),
+    url("/assets/hero-va.jpg");
+  background-size: auto, cover;
+  background-position: center, center 40%;
+}
+/* proof line here is a plain statement, not a quote — straight style, no italics */
+.v2-hero--va .v2-hero__proof {
+  font-style: normal;
+}
+
+/* trust bar: five columns */
+@media (min-width: 1024px) {
+  .lp-trust__grid--five {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .lp-trust__grid--five .lp-trust__big {
+    font-size: clamp(22px, 1.9vw, 28px);
+  }
+}
+@media (max-width: 1023px) {
+  /* 2×2 + fifth full width */
+  .lp-trust__grid--five .lp-trust__item:nth-child(5) {
+    grid-column: 1 / -1;
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+/* ---- Find your schedule (router) ---- */
+.va-sched__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+.va-sched__tile {
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.va-sched__code {
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-caps);
+  color: #fff;
+  background: var(--blue-900);
+  border-radius: var(--radius-sm);
+  padding: 3px 10px;
+  font-variant-numeric: tabular-nums;
+}
+.va-sched__name {
+  font: var(--type-h4);
+  color: var(--text-strong);
+  margin: 0;
+}
+.va-sched__ex {
+  font: var(--type-caption);
+  color: var(--text-muted);
+  margin: 0;
+}
+.va-sched__router {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-7);
+  margin-top: var(--space-7);
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  border-radius: var(--radius-xl);
+  padding: var(--card-pad-lg);
+}
+.va-sched__router-title {
+  font: var(--type-h3);
+  color: var(--text-heading);
+  margin: 0 0 var(--space-2);
+}
+.va-sched__router-body {
+  font: var(--type-body);
+  color: var(--text-body-color);
+  margin: 0;
+  max-width: 56ch;
+}
+.va-sched__router .lp-prize__link {
+  flex: none;
+  text-align: right;
+}
+
+/* ---- Results cards ---- */
+.va-results {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+.va-result {
+  gap: var(--space-4);
+}
+.va-result__headline {
+  font: var(--type-h3);
+  color: var(--text-strong);
+  margin: 0;
+}
+.v2-case--featured .va-result__headline {
+  color: #fff;
+  font-size: 24px;
+}
+.va-result__body {
+  font: var(--type-body);
+  font-size: var(--text-body-sm);
+  color: var(--text-body-color);
+  margin: 0;
+  flex: 1;
+}
+.v2-case--featured .va-result__body {
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-body);
+}
+.va-result__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: var(--type-button);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+.va-result__link:hover {
+  color: var(--orange-600);
+}
+/* featured card: natural flow, no double-row stretch here */
+.va-results .v2-case--featured {
+  grid-row: auto;
+  justify-content: flex-start;
+}
+
+/* ---- Veteran voices ---- */
+.va-voices__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: var(--space-7);
+  align-items: start;
+}
+.va-voices__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.va-voices__panel {
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  border-radius: var(--radius-card);
+  padding: var(--card-pad);
+}
+.va-voices__panel-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--blue-900);
+  color: var(--brand-accent);
+  margin-bottom: var(--space-4);
+}
+.va-voices__panel-title {
+  font: var(--type-h4);
+  color: var(--text-heading);
+  margin: 0 0 var(--space-3);
+}
+.va-voices__panel-body {
+  font: var(--type-body);
+  font-size: var(--text-body-sm);
+  color: var(--text-body-color);
+  margin: 0;
+}
+
+/* ---- OIG infographic ---- */
+.va-oig__row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 var(--space-5) var(--space-4);
+}
+.lp-why__viz-chrome + .va-oig__row {
+  margin-top: var(--space-4);
+}
+.va-oig__label {
+  font: var(--type-eyebrow);
+  font-size: 11px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.va-oig__bar {
+  display: block;
+  height: 14px;
+  background: var(--neutral-150);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.va-oig__fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--orange-400), var(--brand-accent));
+  border-radius: var(--radius-pill);
+}
+.va-oig__note {
+  font: var(--type-caption);
+  color: var(--text-body-color);
+}
+.va-oig__source {
+  font: var(--type-caption);
+  font-size: 11px;
+  color: var(--text-subtle);
+  margin: var(--space-2) var(--space-5) var(--space-5);
+}
+
+/* ---- Team video panel ---- */
+.va-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  min-height: 300px;
+  background:
+    radial-gradient(420px 260px at 80% 0%, rgb(0 124 206 / 0.25), transparent 70%),
+    radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(135deg, var(--blue-950) 0%, var(--blue-900) 100%);
+  background-size: auto, 22px 22px, auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  padding: var(--card-pad-lg);
+  transition: var(--transition-card);
+}
+.va-video:hover {
+  transform: var(--lift-hover);
+  box-shadow: var(--shadow-lg);
+}
+.va-video__play {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-accent);
+  color: #fff;
+  box-shadow: var(--shadow-accent);
+}
+.va-video__label {
+  font: var(--type-h4);
+  color: #fff;
+}
+.va-video__meta {
+  font: var(--type-caption);
+  color: var(--text-on-dark-muted);
+}
+
+/* ---- Final CTA: five fields incl. the category select ---- */
+.lp-final__row--five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.va-final__select .pr-select__el {
+  background: #fff;
+  border-color: #fff;
+  height: var(--control-h-lg);
+  color: var(--blue-900);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-body-sm);
+}
+
+@media (max-width: 1023px) {
+  .va-sched__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .va-sched__tile {
+    padding: var(--space-5);
+  }
+  .va-sched__router {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--card-pad);
+    margin-top: var(--space-5);
+  }
+  .va-results {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .va-voices__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .lp-final__row--five {
+    grid-template-columns: 1fr;
+  }
+  .va-video {
+    min-height: 220px;
+  }
+}

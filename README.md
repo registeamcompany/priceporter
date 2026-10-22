@@ -12,6 +12,17 @@ direction with the full-bleed Capitol photo hero. Entry `src/main-v2b.js`.
 A ready-to-deploy build of all pages lives in `release/landing-dist.zip` —
 unzip onto any static hosting; `index.html` is the approved page.
 
+**VA landing** (`/va.html`, entry `src/main-va.js`, components in
+`src/components/va/`, styles in `src/styles/va/va.css`): "Get a VA Schedule
+Contract" deck for Segment #2 (veteran-owned businesses and medical suppliers).
+Same v2 design and photo-hero pattern with its own hero shot
+(`public/assets/hero-va.jpg`, medical-supply warehouse). VA-specific blocks:
+the nine-schedules router (with a hand-off card to the GSA landing), results
+cards, veteran-owned voices with the SDVOSB/VOSB panel, the VA OIG "why now"
+infographic, the team video panel, and a five-question routing quiz
+(quiz.js derives the question count from the markup). Indexable alongside
+`index.html` — they target different ad queries.
+
 Other pages ship from the same codebase (multi-page Vite build), all `noindex`:
 
 **Version 1** — the original art direction (flat refresh theme):
