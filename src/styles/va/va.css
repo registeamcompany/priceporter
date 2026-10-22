@@ -304,30 +304,50 @@
   margin: var(--space-2) var(--space-5) var(--space-5);
 }
 
-/* ---- Team video panel ---- */
+/* ---- Team video: click-to-play facade over the real YouTube embed
+   (the same video the client embeds on pricereporter.com/get-va-contract/) ---- */
 .va-video {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-4);
-  min-height: 300px;
-  background:
-    radial-gradient(420px 260px at 80% 0%, rgb(0 124 206 / 0.25), transparent 70%),
-    radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
-    linear-gradient(135deg, var(--blue-950) 0%, var(--blue-900) 100%);
-  background-size: auto, 22px 22px, auto;
+  position: relative;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius-xl);
+  overflow: hidden;
   box-shadow: var(--shadow-md);
-  text-align: center;
-  padding: var(--card-pad-lg);
+  background: var(--blue-950);
+}
+.va-video__face {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+.va-video__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* brand imagery treatment: desaturated, cool */
+  filter: saturate(0.6);
   transition: var(--transition-card);
 }
-.va-video:hover {
-  transform: var(--lift-hover);
-  box-shadow: var(--shadow-lg);
+.va-video__face:hover .va-video__poster {
+  transform: scale(1.03);
+}
+.va-video__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(6 24 44 / 0.1) 35%, rgb(6 24 44 / 0.82) 100%);
 }
 .va-video__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -62%;
   display: grid;
   place-items: center;
   width: 72px;
@@ -336,6 +356,18 @@
   background: var(--brand-accent);
   color: #fff;
   box-shadow: var(--shadow-accent);
+  transition: var(--transition-card);
+}
+.va-video__face:hover .va-video__play {
+  transform: scale(1.06);
+}
+.va-video__caption {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-5);
 }
 .va-video__label {
   font: var(--type-h4);
@@ -344,6 +376,13 @@
 .va-video__meta {
   font: var(--type-caption);
   color: var(--text-on-dark-muted);
+}
+.va-video__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* ---- Final CTA: five fields incl. the category select ---- */
@@ -404,7 +443,15 @@
   .lp-final__row--five {
     grid-template-columns: 1fr;
   }
-  .va-video {
-    min-height: 220px;
+  .va-video__play {
+    width: 56px;
+    height: 56px;
+    translate: -50% -78%;
+  }
+  .va-video__caption {
+    padding: var(--space-4);
+  }
+  .va-video__label {
+    font-size: var(--text-body-sm);
   }
 }

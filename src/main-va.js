@@ -56,6 +56,7 @@ import { initTestimonials } from './scripts/carousel.js';
 import { initStickyUi } from './scripts/sticky-ui.js';
 import { initExitIntent } from './scripts/exit-intent.js';
 import { initAnimations } from './scripts/animations.js';
+import { initVideo } from './scripts/video.js';
 
 const mounts = {
   header: HeaderVA,
@@ -90,3 +91,4 @@ initTestimonials();
 initStickyUi();
 initExitIntent();
 initAnimations();
+initVideo();

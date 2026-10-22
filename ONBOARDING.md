@@ -63,7 +63,7 @@ Node 18+. Ніяких інших залежностей, крім Vite, нем�
     v2/v2.css                     СКІН v2: токен-оверрайди під body.v2 (радіуси, тіні, сітка…)
     v2/hero-photo.css             фото-hero затвердженої сторінки (модифікатор .v2-hero--photo)
 /src/scripts/                  ← уся інтерактивність (жодного inline JS у компонентах):
-    lead-form.js  quiz.js  faq.js  carousel.js  sticky-ui.js  exit-intent.js  animations.js
+    lead-form.js  quiz.js  faq.js  carousel.js  sticky-ui.js  exit-intent.js  animations.js  video.js
 /src/ds/                       ← дизайн-система: токени + CSS компонентів (підмножина архіву)
 /public/assets/                ← лого, фото Капітолія (hero-capitol-full.jpg), фавікон
 "Price Reporter Design System.zip"  ← повний архів дизайн-системи (гайдлайни, специмени, UI-кіти)
