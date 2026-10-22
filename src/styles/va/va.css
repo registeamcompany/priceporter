@@ -2,20 +2,24 @@
    New blocks: schedules router, results cards, veteran voices panel,
    OIG infographic, video panel; plus the VA hero photo and 5-col trust bar. */
 
-/* hero: medical-supply warehouse photo instead of the Capitol */
-.v2-hero--photo.v2-hero--va .v2-hero__bg {
-  background-image:
-    linear-gradient(92deg,
-      rgb(6 24 44 / 0.94) 0%,
-      rgb(6 24 44 / 0.82) 34%,
-      rgb(8 40 66 / 0.55) 64%,
-      rgb(8 40 66 / 0.4) 100%),
-    url("/assets/hero-va.jpg");
-  background-size: auto, cover;
-  background-position: center, center 40%;
+/* hero: medical-facility photo instead of the Capitol (desktop only — mobile keeps
+   the solid navy treatment from hero-photo.css and skips the download) */
+@media (min-width: 1024px) {
+  .v2-hero--photo.v2-hero--va .v2-hero__bg {
+    background-image:
+      linear-gradient(92deg,
+        rgb(6 24 44 / 0.94) 0%,
+        rgb(6 24 44 / 0.82) 34%,
+        rgb(8 40 66 / 0.55) 64%,
+        rgb(8 40 66 / 0.4) 100%),
+      url("/assets/hero-va.jpg");
+    background-size: auto, cover;
+    background-position: center, center 40%;
+  }
 }
-/* proof line here is a plain statement, not a quote — straight style, no italics */
-.v2-hero--va .v2-hero__proof {
+/* proof line here is a plain statement, not a quote — straight style, no italics
+   (tripled class so the override survives any build chunk order) */
+.v2-hero--photo.v2-hero--va .v2-hero__proof {
   font-style: normal;
 }
 
@@ -99,27 +103,69 @@
 }
 .va-sched__router .lp-prize__link {
   flex: none;
-  text-align: right;
+  text-align: left;
+}
+.va-sched__router .lp-prize__link .ic {
+  flex: none;
 }
 
-/* ---- Results cards ---- */
+/* ---- Prize intro: body copy beside a facility photo ---- */
+.va-prize__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-9);
+  align-items: center;
+  margin-bottom: var(--space-9);
+}
+.va-prize__intro .lp-prize__body {
+  text-align: left;
+  margin-bottom: 0;
+}
+.va-prize__photo {
+  margin: 0;
+}
+.va-prize__photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  /* brand imagery treatment: desaturated, cool */
+  filter: saturate(0.5);
+}
+
+/* ---- Results cards: photo header + GSA-style metrics ---- */
 .va-results {
   display: grid;
   grid-template-columns: 1.25fr 1fr 1fr;
   gap: var(--space-6);
   align-items: stretch;
 }
-.va-result {
-  gap: var(--space-4);
+.v2-case.va-result {
+  padding: 0;
+  overflow: hidden;
+  gap: 0;
 }
-.va-result__headline {
-  font: var(--type-h3);
-  color: var(--text-strong);
+.va-result__photo {
   margin: 0;
 }
-.v2-case--featured .va-result__headline {
-  color: #fff;
-  font-size: 24px;
+.va-result__photo img {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  filter: saturate(0.6);
+}
+.v2-case--featured .va-result__photo img {
+  height: 200px;
+}
+.va-result__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--card-pad);
+  flex: 1;
 }
 .va-result__body {
   font: var(--type-body);
@@ -148,6 +194,14 @@
 .va-results .v2-case--featured {
   grid-row: auto;
   justify-content: flex-start;
+}
+.va-results .v2-case__metrics {
+  padding-block: 0;
+  gap: var(--space-6);
+}
+/* smaller figures in the narrow cards so two metrics sit side by side with air */
+.va-results .v2-case:not(.v2-case--featured) .v2-case__num {
+  font-size: clamp(26px, 2.1vw, 32px);
 }
 
 /* ---- Veteran voices ---- */
@@ -302,9 +356,18 @@
     padding: var(--card-pad);
     margin-top: var(--space-5);
   }
+  .va-prize__intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    margin-bottom: var(--space-7);
+  }
   .va-results {
     grid-template-columns: 1fr;
     gap: var(--space-4);
+  }
+  .va-result__photo img,
+  .v2-case--featured .va-result__photo img {
+    height: 150px;
   }
   .va-voices__grid {
     grid-template-columns: 1fr;
