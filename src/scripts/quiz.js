@@ -1,5 +1,7 @@
-// BLOCK 5 — quiz: 4 questions shown one at a time, progress bar, contact step,
-// result screen. Answers land in console with the contact payload (CRM seam).
+// BLOCK 5 — quiz: questions shown one at a time, progress bar, contact step,
+// result screen. The contact step posts the lead (answers go into the subject).
+
+import { sendLead, leadSubject } from './submit.js';
 
 export function initQuiz() {
   const root = document.querySelector('[data-quiz]');
@@ -53,11 +55,34 @@ export function initQuiz() {
     show(current);
   });
 
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!contactForm.reportValidity()) return;
+    const btn = contactForm.querySelector('[type="submit"]');
+    const btnLabel = btn ? btn.textContent : '';
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+    }
     const contact = Object.fromEntries(new FormData(contactForm).entries());
-    console.info('[quiz] submission', { answers, contact });
+    try {
+      await sendLead({
+        name: contact.name,
+        company: contact.company,
+        email: contact.email,
+        phone: contact.phone,
+        subject: leadSubject(`Quiz [${answers.join(' | ')}]`),
+      });
+    } catch (err) {
+      // The visitor already answered the quiz — show the result either way,
+      // but keep the failed payload in the console for debugging.
+      console.error('[quiz] send failed', err, { answers, contact });
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = btnLabel;
+      }
+    }
     show('result');
   });
 

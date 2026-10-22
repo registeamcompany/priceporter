@@ -97,13 +97,19 @@ npm run preview  # serve the build
    until brand-use is cleared.
 7. **Real service-page URLs** for the three service-card links (currently they lead
    to the form to keep one CTA per page).
-8. **CRM endpoint + call-tracking number** — forms and quiz log payloads to console;
-   phone number is hardcoded as 201-567-6646 everywhere.
+8. **Call-tracking number** — phone number is hardcoded as 201-567-6646 everywhere.
+   (Forms are wired: leads post to the site's Contact Form 7 backend, see below.)
 
 ## Wiring left for launch
 
-- Lead forms and the quiz currently swap to a success state and log the payload to the
-  console (`[lead-form]` / `[quiz]`) — connect them to the CRM there.
+- Lead forms and the quiz post to the production backend (`scripts/submit.js`): the same
+  Contact Form 7 endpoint (form 1227, WordPress + reCAPTCHA v3 + Akismet) that
+  pricereporter.com's "Get Consultation" form uses, so leads land in the same inbox/CRM.
+  GTM `GTM-TX2D2N6` is on both production pages; successful sends fire `wpcf7mailsent`
+  and a `lead_form_submit` dataLayer event for conversion tracking.
+- `release/get-va-deploy.zip` — deploy-ready VA page served at `/get-va` (no `.html`):
+  upload its `get-va/` and `assets/` folders to the hosting document root. See the
+  `DEPLOY.md` inside the archive.
 - Service-card links ("How we win contracts →" etc.) point at the lead form for now;
   swap in real service-page URLs if competing navigation is acceptable.
 - Blog link in the "Why 2026" block points to `pricereporter.com/blog/`.
